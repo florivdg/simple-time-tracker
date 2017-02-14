@@ -16,6 +16,20 @@ class Timesheet: Object {
     
     let tasks = List<Task>()
     
+    class func addTimesheet(withTitle title: String) -> Timesheet {
+        
+        let realm = try! Realm()
+        let sheet = Timesheet()
+        sheet.title = title
+        
+        try! realm.write {
+            realm.add(sheet)
+        }
+        
+        return sheet
+        
+    }
+    
     class func createDefault() -> Bool {
         
         let realm = try! Realm()
@@ -34,6 +48,12 @@ class Timesheet: Object {
         
         return false
         
+    }
+    
+    var duration: TimeInterval {
+        get {
+            return self.tasks.map({$0.duration}).reduce(0,+)
+        }
     }
     
 }

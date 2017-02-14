@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		016C2F5F3C1688CEAEB771BB /* Pods_Simple_Time_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */; };
 		54045E011E539581009B5732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E001E539581009B5732 /* AppDelegate.swift */; };
-		54045E031E539581009B5732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E021E539581009B5732 /* ViewController.swift */; };
+		54045E031E539581009B5732 /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E021E539581009B5732 /* TimesheetViewController.swift */; };
 		54045E051E539581009B5732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54045E041E539581009B5732 /* Assets.xcassets */; };
 		54045E081E539581009B5732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54045E061E539581009B5732 /* Main.storyboard */; };
 		54045E101E539656009B5732 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E0F1E539656009B5732 /* MainWindowController.swift */; };
@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		54045DFD1E539581009B5732 /* Simple Time Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Time Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54045E001E539581009B5732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54045E021E539581009B5732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		54045E021E539581009B5732 /* TimesheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetViewController.swift; sourceTree = "<group>"; };
 		54045E041E539581009B5732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54045E071E539581009B5732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54045E091E539581009B5732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				54045E0F1E539656009B5732 /* MainWindowController.swift */,
-				54045E021E539581009B5732 /* ViewController.swift */,
+				54045E021E539581009B5732 /* TimesheetViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54045E031E539581009B5732 /* ViewController.swift in Sources */,
+				54045E031E539581009B5732 /* TimesheetViewController.swift in Sources */,
 				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
 				54045E141E5398D1009B5732 /* Task.swift in Sources */,
 				54045E121E53982A009B5732 /* Timesheet.swift in Sources */,

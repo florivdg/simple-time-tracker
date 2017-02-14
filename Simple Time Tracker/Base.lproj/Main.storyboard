@@ -731,16 +731,70 @@
             </objects>
             <point key="canvasLocation" x="75" y="303"/>
         </scene>
-        <!--View Controller-->
+        <!--Timesheet View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="TimesheetViewController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-Me-QXC">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-3K-4Hb">
+                                        <rect key="frame" x="18" y="206" width="72" height="44"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="pt5-LP-N97">
+                                            <font key="font" size="36" name=".AppleSystemUIFont"/>
+                                            <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-DW-XAb">
+                                        <rect key="frame" x="391" y="226" width="69" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="69" id="OIX-jg-Izv"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundTextured" title="Stop" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q7Y-sW-fFu">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="stopTimer:" target="XfG-lQ-9wD" id="lTg-0j-ZVI"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qNf-7w-PIf">
+                                        <rect key="frame" x="314" y="226" width="69" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="69" id="wrz-W6-JqB"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundTextured" title="Start" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7t2-62-S6S">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="startTimer:" target="XfG-lQ-9wD" id="xNw-2j-our"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXC-oa-LPo">
+                                        <rect key="frame" x="18" y="173" width="50" height="25"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Total" id="C3r-jF-uaC">
+                                            <font key="font" metaFont="system" size="21"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="top" secondItem="Ma1-3K-4Hb" secondAttribute="top" id="EQQ-S2-YGf"/>
+                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="baseline" secondItem="gxy-DW-XAb" secondAttribute="baseline" id="L8q-U0-eNO"/>
+                                    <constraint firstItem="Ma1-3K-4Hb" firstAttribute="leading" secondItem="SGv-Me-QXC" secondAttribute="leading" constant="20" symbolic="YES" id="MLK-Kd-26Y"/>
+                                    <constraint firstItem="gxy-DW-XAb" firstAttribute="leading" secondItem="qNf-7w-PIf" secondAttribute="trailing" constant="8" symbolic="YES" id="QBw-YH-9UF"/>
+                                    <constraint firstItem="Ma1-3K-4Hb" firstAttribute="top" secondItem="SGv-Me-QXC" secondAttribute="top" constant="20" symbolic="YES" id="g3T-gw-nyg"/>
+                                    <constraint firstItem="MXC-oa-LPo" firstAttribute="top" secondItem="Ma1-3K-4Hb" secondAttribute="bottom" constant="8" symbolic="YES" id="g8j-qa-ml7"/>
+                                    <constraint firstAttribute="trailing" secondItem="gxy-DW-XAb" secondAttribute="trailing" constant="20" symbolic="YES" id="hfE-FW-PS7"/>
+                                    <constraint firstItem="MXC-oa-LPo" firstAttribute="leading" secondItem="Ma1-3K-4Hb" secondAttribute="leading" id="vca-vZ-5uP"/>
+                                </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
@@ -750,10 +804,16 @@
                             <constraint firstItem="SGv-Me-QXC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="j3v-8z-nuX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnStart" destination="qNf-7w-PIf" id="6Rd-FH-GsV"/>
+                        <outlet property="btnStop" destination="gxy-DW-XAb" id="eLL-mz-kG7"/>
+                        <outlet property="labelTitle" destination="Ma1-3K-4Hb" id="KSP-iA-1yh"/>
+                        <outlet property="labelTotal" destination="MXC-oa-LPo" id="Q65-l8-evn"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="784"/>
+            <point key="canvasLocation" x="75" y="789"/>
         </scene>
     </scenes>
     <resources>
