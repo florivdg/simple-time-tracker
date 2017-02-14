@@ -80,6 +80,7 @@ class TimesheetViewController: NSViewController {
         
         updateDurationDisplay()
         
+        updateTimer?.invalidate()
         updateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] (timer) in
             if self?.currentTask == nil {
                 self?.updateTimer?.invalidate()
@@ -92,7 +93,7 @@ class TimesheetViewController: NSViewController {
     
     func updateDurationDisplay() {
         if let totalDuration = timesheet?.duration {
-            labelTotal.stringValue = String(totalDuration)
+            labelTotal.stringValue = totalDuration.string
         }
     }
     
