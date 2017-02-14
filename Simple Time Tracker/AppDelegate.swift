@@ -17,8 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        let devLogPath = "/Users/flori/Desktop/stt_dev.log"
-        log.setup(level: .debug, showThreadName: true, showLevel: false, showFileNames: true, showLineNumbers: true, writeToFile: devLogPath, fileLevel: .verbose)
+        log.setup(level: .verbose, showThreadName: true, showLevel: false, showFileNames: true, showLineNumbers: true)
         
     }
 

@@ -13,6 +13,8 @@
 		54045E051E539581009B5732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54045E041E539581009B5732 /* Assets.xcassets */; };
 		54045E081E539581009B5732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54045E061E539581009B5732 /* Main.storyboard */; };
 		54045E101E539656009B5732 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E0F1E539656009B5732 /* MainWindowController.swift */; };
+		54045E121E53982A009B5732 /* Timesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E111E53982A009B5732 /* Timesheet.swift */; };
+		54045E141E5398D1009B5732 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E131E5398D1009B5732 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		54045E071E539581009B5732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54045E091E539581009B5732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54045E0F1E539656009B5732 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		54045E111E53982A009B5732 /* Timesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timesheet.swift; sourceTree = "<group>"; };
+		54045E131E5398D1009B5732 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Time_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,13 +74,31 @@
 			isa = PBXGroup;
 			children = (
 				54045E001E539581009B5732 /* AppDelegate.swift */,
-				54045E0F1E539656009B5732 /* MainWindowController.swift */,
-				54045E021E539581009B5732 /* ViewController.swift */,
-				54045E041E539581009B5732 /* Assets.xcassets */,
+				54045E151E5399DF009B5732 /* Model */,
+				54045E161E5399E6009B5732 /* Controller */,
 				54045E061E539581009B5732 /* Main.storyboard */,
+				54045E041E539581009B5732 /* Assets.xcassets */,
 				54045E091E539581009B5732 /* Info.plist */,
 			);
 			path = "Simple Time Tracker";
+			sourceTree = "<group>";
+		};
+		54045E151E5399DF009B5732 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54045E111E53982A009B5732 /* Timesheet.swift */,
+				54045E131E5398D1009B5732 /* Task.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		54045E161E5399E6009B5732 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54045E0F1E539656009B5732 /* MainWindowController.swift */,
+				54045E021E539581009B5732 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		9803493B74882987EAC26173 /* Pods */ = {
@@ -213,6 +235,8 @@
 			files = (
 				54045E031E539581009B5732 /* ViewController.swift in Sources */,
 				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
+				54045E141E5398D1009B5732 /* Task.swift in Sources */,
+				54045E121E53982A009B5732 /* Timesheet.swift in Sources */,
 				54045E011E539581009B5732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

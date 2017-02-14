@@ -666,17 +666,70 @@
                 <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Simple Time Tracker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <toolbar key="toolbar" implicitIdentifier="A255E546-A1BF-4C46-A253-987F3531F24F" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="lqa-g2-F4G">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qsF-Zv-80A"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="cbn-Tv-t2K"/>
+                                <toolbarItem implicitItemIdentifier="F2741BA4-2FB3-4FBA-BD1A-3B94B1296631" label="Timesheets" paletteLabel="Timesheets" id="LQA-fp-3eQ">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="52" height="28"/>
+                                    <size key="maxSize" width="150" height="28"/>
+                                    <popUpButton key="view" verticalHuggingPriority="750" id="eTr-4K-kna">
+                                        <rect key="frame" x="0.0" y="14" width="100" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <popUpButtonCell key="cell" type="roundTextured" title="Item 1" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="j3b-0f-WZH" id="A5D-Rb-tO2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="Plt-cr-zGM">
+                                                <items>
+                                                    <menuItem title="Item 1" state="on" id="j3b-0f-WZH"/>
+                                                    <menuItem title="Item 2" id="CIJ-30-B1B"/>
+                                                    <menuItem title="Item 3" id="oqv-Kp-WgR"/>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="timesheetSelected:" target="B8D-0N-5wS" id="Ckk-qO-1DQ"/>
+                                        </connections>
+                                    </popUpButton>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="D4F95F3C-0464-46B9-8773-CCC00821359B" label="Add" paletteLabel="Add" id="A3Y-P3-EAy">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="38" height="25"/>
+                                    <size key="maxSize" width="38" height="25"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="ehm-TU-1Qh">
+                                        <rect key="frame" x="0.0" y="14" width="34" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="rMl-41-A0M">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="NSAddTemplate" width="32"/>
+                                            </segments>
+                                        </segmentedCell>
+                                        <connections>
+                                            <action selector="addTimesheet:" target="B8D-0N-5wS" id="4EX-2O-0tf"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="cbn-Tv-t2K"/>
+                                <toolbarItem reference="A3Y-P3-EAy"/>
+                                <toolbarItem reference="LQA-fp-3eQ"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                     </window>
                     <connections>
+                        <outlet property="timesheetPopupButton" destination="eTr-4K-kna" id="qED-hB-lZq"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="303"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -685,11 +738,25 @@
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-Me-QXC">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SGv-Me-QXC" secondAttribute="trailing" id="UOL-mk-3Hc"/>
+                            <constraint firstItem="SGv-Me-QXC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="diI-SG-hFP"/>
+                            <constraint firstAttribute="bottom" secondItem="SGv-Me-QXC" secondAttribute="bottom" id="fF1-AZ-ATo"/>
+                            <constraint firstItem="SGv-Me-QXC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="j3v-8z-nuX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="784"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+    </resources>
 </document>
