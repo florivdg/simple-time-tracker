@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016C2F5F3C1688CEAEB771BB /* Pods_Simple_Time_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */; };
 		54045E011E539581009B5732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E001E539581009B5732 /* AppDelegate.swift */; };
 		54045E031E539581009B5732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E021E539581009B5732 /* ViewController.swift */; };
 		54045E051E539581009B5732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54045E041E539581009B5732 /* Assets.xcassets */; };
 		54045E081E539581009B5732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54045E061E539581009B5732 /* Main.storyboard */; };
+		54045E101E539656009B5732 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E0F1E539656009B5732 /* MainWindowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,10 @@
 		54045E041E539581009B5732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54045E071E539581009B5732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54045E091E539581009B5732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54045E0F1E539656009B5732 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Time_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016C2F5F3C1688CEAEB771BB /* Pods_Simple_Time_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A01888355C1DBDB74BAC0F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		54045DF41E539581009B5732 = {
 			isa = PBXGroup;
 			children = (
 				54045DFF1E539581009B5732 /* Simple Time Tracker */,
 				54045DFE1E539581009B5732 /* Products */,
+				9803493B74882987EAC26173 /* Pods */,
+				4A01888355C1DBDB74BAC0F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,12 +70,22 @@
 			isa = PBXGroup;
 			children = (
 				54045E001E539581009B5732 /* AppDelegate.swift */,
+				54045E0F1E539656009B5732 /* MainWindowController.swift */,
 				54045E021E539581009B5732 /* ViewController.swift */,
 				54045E041E539581009B5732 /* Assets.xcassets */,
 				54045E061E539581009B5732 /* Main.storyboard */,
 				54045E091E539581009B5732 /* Info.plist */,
 			);
 			path = "Simple Time Tracker";
+			sourceTree = "<group>";
+		};
+		9803493B74882987EAC26173 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */,
+				DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54045E0C1E539581009B5732 /* Build configuration list for PBXNativeTarget "Simple Time Tracker" */;
 			buildPhases = (
+				15A6FA6498B6D0EF2CE92F7D /* [CP] Check Pods Manifest.lock */,
 				54045DF91E539581009B5732 /* Sources */,
 				54045DFA1E539581009B5732 /* Frameworks */,
 				54045DFB1E539581009B5732 /* Resources */,
+				951B656C4EAD7F1AB6620F6F /* [CP] Embed Pods Frameworks */,
+				558B9863C59FCB586760C180 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,12 +158,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15A6FA6498B6D0EF2CE92F7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		558B9863C59FCB586760C180 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		951B656C4EAD7F1AB6620F6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		54045DF91E539581009B5732 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				54045E031E539581009B5732 /* ViewController.swift in Sources */,
+				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
 				54045E011E539581009B5732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +323,7 @@
 		};
 		54045E0D1E539581009B5732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -258,6 +338,7 @@
 		};
 		54045E0E1E539581009B5732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -289,6 +370,7 @@
 				54045E0E1E539581009B5732 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
