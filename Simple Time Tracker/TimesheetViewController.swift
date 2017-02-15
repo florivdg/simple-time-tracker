@@ -104,6 +104,12 @@ class TimesheetViewController: NSViewController {
             NSBeep()
             return }
         
+        guard currentTask?.timesheet == self.timesheet else {
+            log.error("Trying to stop a task that is not shown currently!")
+            NSBeep()
+            return
+        }
+        
         let realm = try! Realm()
         try! realm.write {
             task.end = Date()

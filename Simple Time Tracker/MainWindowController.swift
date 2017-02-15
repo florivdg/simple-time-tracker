@@ -28,16 +28,13 @@ class MainWindowController: NSWindowController {
         let realm = try! Realm()
         timesheets = realm.objects(Timesheet.self).sorted(byKeyPath: "title", ascending: true)
         
-//        try! realm.write {
-//            realm.deleteAll()
-//        }
-        
         configureTimesheetSelector()
         
-        if let sheet = timesheets?.first {
-            loadTimesheet(sheet)
+        let sheet = Task.runningTask()?.timesheet ?? timesheets?.first
+        if sheet != nil {
+            loadTimesheet(sheet!, showSelection: true)
         }
-
+        
     }
     
     func configureTimesheetSelector() {
