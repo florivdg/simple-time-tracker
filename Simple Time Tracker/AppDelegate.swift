@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         log.setup(level: .verbose, showThreadName: true, showLevel: false, showFileNames: true, showLineNumbers: true)
         
+        if Task.runningTask() != nil {
+            NSApp.dockTile.badgeLabel = " "
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

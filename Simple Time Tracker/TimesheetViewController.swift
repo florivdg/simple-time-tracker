@@ -82,6 +82,8 @@ class TimesheetViewController: NSViewController {
         
         startUIUpdateTimer()
         
+        NSApp.dockTile.badgeLabel = " "
+        
         log.debug(self.currentTask)
         
     }
@@ -102,6 +104,9 @@ class TimesheetViewController: NSViewController {
     }
     
     func updateDurationDisplay() {
+        
+        /* Labels */
+        
         if let totalDuration = timesheet?.duration {
             labelTotal.stringValue = totalDuration.string
         }
@@ -110,6 +115,7 @@ class TimesheetViewController: NSViewController {
         } else {
             labelCurrent.stringValue = "---"
         }
+        
     }
     
     @IBAction func stopTimer(_ sender: NSButton) {
@@ -130,6 +136,8 @@ class TimesheetViewController: NSViewController {
             task.end = Date()
             task.running = false
         }
+        
+        NSApp.dockTile.badgeLabel = nil
         
         log.debug("\(task),\n\ran \(task.duration) s")
         
