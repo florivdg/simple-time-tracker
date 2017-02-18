@@ -56,4 +56,10 @@ class Timesheet: Object {
         }
     }
     
+    var isRunning: Bool {
+        get {
+            return (self.tasks.filter("running = true").count != 0)
+        }
+    }
+    
 }

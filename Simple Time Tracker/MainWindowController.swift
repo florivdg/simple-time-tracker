@@ -43,7 +43,8 @@ class MainWindowController: NSWindowController {
         
         if let timesheets = timesheets {
             for sheet in timesheets {
-                timesheetPopupButton.addItem(withTitle: sheet.title)
+                let sheetTitle = (sheet.isRunning) ? "∙ \(sheet.title)" : sheet.title
+                timesheetPopupButton.addItem(withTitle: sheetTitle)
             }
         }
         

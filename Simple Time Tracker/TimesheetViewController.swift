@@ -14,10 +14,19 @@ class TimesheetViewController: NSViewController {
     
     @IBOutlet weak var labelTitle: NSTextField!
     @IBOutlet weak var labelTotal: NSTextField!
+    @IBOutlet weak var labelCurrent: NSTextField!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnStop: NSButton!
     
     let log = XCGLogger.default
+    
+    lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        formatter.doesRelativeDateFormatting = true
+        return formatter
+    }()
     
     var timesheet: Timesheet? {
         didSet {
@@ -94,6 +103,11 @@ class TimesheetViewController: NSViewController {
     func updateDurationDisplay() {
         if let totalDuration = timesheet?.duration {
             labelTotal.stringValue = totalDuration.string
+        }
+        if currentTask?.timesheet == timesheet, let currentDuration = currentTask?.duration {
+            labelCurrent.stringValue = currentDuration.string
+        } else {
+            labelCurrent.stringValue = "---"
         }
     }
     
