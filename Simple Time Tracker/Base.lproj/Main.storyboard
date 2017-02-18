@@ -666,9 +666,8 @@
                 <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Simple Time Tracker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="231" y="594" width="480" height="270"/>
+                        <rect key="contentRect" x="231" y="594" width="480" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
                         <toolbar key="toolbar" implicitIdentifier="A255E546-A1BF-4C46-A253-987F3531F24F" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="lqa-g2-F4G">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="qsF-Zv-80A"/>
@@ -751,16 +750,16 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-DW-XAb">
-                                        <rect key="frame" x="391" y="226" width="69" height="25"/>
+                                        <rect key="frame" x="20" y="18" width="75" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="69" id="Aux-sU-eWS"/>
+                                            <constraint firstAttribute="width" constant="75" id="Aux-sU-eWS"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="roundTextured" title="Stop" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q7Y-sW-fFu">
+                                        <buttonCell key="cell" type="roundTextured" title="Start" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q7Y-sW-fFu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="stopTimer:" target="XfG-lQ-9wD" id="lTg-0j-ZVI"/>
+                                            <action selector="startTimer:" target="XfG-lQ-9wD" id="Ub8-Wf-VYE"/>
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXC-oa-LPo">
@@ -779,30 +778,50 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qNf-7w-PIf">
-                                        <rect key="frame" x="314" y="226" width="69" height="25"/>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="cbx-wc-E3y">
+                                        <rect key="frame" x="430" y="20" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="69" id="ngO-ri-eMz"/>
+                                            <constraint firstAttribute="width" constant="30" id="Uzh-6C-yNF"/>
+                                            <constraint firstAttribute="height" constant="30" id="Y7T-UG-9gy"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="roundTextured" title="Start" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7t2-62-S6S">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSShareTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="35b-pC-lUW">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">e</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="exportTimesheet:" target="XfG-lQ-9wD" id="dzs-sY-8Z2"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qNf-7w-PIf">
+                                        <rect key="frame" x="103" y="18" width="75" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="PZf-ED-AHw"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="roundTextured" title="Stop" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7t2-62-S6S">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="startTimer:" target="XfG-lQ-9wD" id="xNw-2j-our"/>
+                                            <action selector="stopTimer:" target="XfG-lQ-9wD" id="oes-T5-Ili"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ma1-3K-4Hb" firstAttribute="top" secondItem="qNf-7w-PIf" secondAttribute="top" id="0Ks-yT-F5j"/>
-                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="baseline" secondItem="gxy-DW-XAb" secondAttribute="baseline" id="8hk-q2-z2N"/>
+                                    <constraint firstItem="gxy-DW-XAb" firstAttribute="leading" secondItem="l3K-J7-g1q" secondAttribute="leading" constant="20" symbolic="YES" id="Ai3-pz-OIP"/>
+                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="leading" secondItem="gxy-DW-XAb" secondAttribute="trailing" constant="8" symbolic="YES" id="Ax5-6V-uLK"/>
+                                    <constraint firstAttribute="bottom" secondItem="cbx-wc-E3y" secondAttribute="bottom" constant="20" symbolic="YES" id="LqV-DS-9p3"/>
                                     <constraint firstItem="qG8-Wz-lqf" firstAttribute="top" secondItem="MXC-oa-LPo" secondAttribute="bottom" constant="8" symbolic="YES" id="PVT-UZ-Bap"/>
-                                    <constraint firstItem="gxy-DW-XAb" firstAttribute="leading" secondItem="qNf-7w-PIf" secondAttribute="trailing" constant="8" symbolic="YES" id="R00-HT-KsD"/>
                                     <constraint firstItem="Ma1-3K-4Hb" firstAttribute="leading" secondItem="l3K-J7-g1q" secondAttribute="leading" constant="20" symbolic="YES" id="RbP-Ud-Wl0"/>
                                     <constraint firstItem="Ma1-3K-4Hb" firstAttribute="top" secondItem="l3K-J7-g1q" secondAttribute="top" constant="20" symbolic="YES" id="YuN-RI-1o9"/>
-                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ma1-3K-4Hb" secondAttribute="trailing" constant="8" symbolic="YES" id="fpE-d1-rOR"/>
-                                    <constraint firstAttribute="trailing" secondItem="gxy-DW-XAb" secondAttribute="trailing" constant="20" symbolic="YES" id="jV6-CZ-UPo"/>
+                                    <constraint firstItem="qNf-7w-PIf" firstAttribute="baseline" secondItem="gxy-DW-XAb" secondAttribute="baseline" id="ap7-e8-eGI"/>
+                                    <constraint firstAttribute="trailing" secondItem="cbx-wc-E3y" secondAttribute="trailing" constant="20" symbolic="YES" id="o1u-KB-cvf"/>
+                                    <constraint firstAttribute="bottom" secondItem="gxy-DW-XAb" secondAttribute="bottom" constant="20" symbolic="YES" id="o2g-47-w2b"/>
                                     <constraint firstItem="Ma1-3K-4Hb" firstAttribute="leading" secondItem="MXC-oa-LPo" secondAttribute="leading" id="qbu-eE-EA8"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ma1-3K-4Hb" secondAttribute="trailing" constant="20" symbolic="YES" id="qyR-Sa-3MY"/>
+                                    <constraint firstItem="cbx-wc-E3y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qNf-7w-PIf" secondAttribute="trailing" constant="8" symbolic="YES" id="rAM-ur-hGc"/>
+                                    <constraint firstItem="gxy-DW-XAb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qG8-Wz-lqf" secondAttribute="bottom" constant="30" id="tcE-5K-so8"/>
                                     <constraint firstItem="MXC-oa-LPo" firstAttribute="top" secondItem="Ma1-3K-4Hb" secondAttribute="bottom" constant="8" symbolic="YES" id="ynV-Xb-oxx"/>
                                     <constraint firstItem="MXC-oa-LPo" firstAttribute="leading" secondItem="qG8-Wz-lqf" secondAttribute="leading" id="zSe-SL-PHp"/>
                                 </constraints>
@@ -816,8 +835,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnStart" destination="qNf-7w-PIf" id="6Rd-FH-GsV"/>
-                        <outlet property="btnStop" destination="gxy-DW-XAb" id="eLL-mz-kG7"/>
+                        <outlet property="btnStart" destination="gxy-DW-XAb" id="dkC-nr-TgK"/>
+                        <outlet property="btnStop" destination="qNf-7w-PIf" id="A3A-hq-6gf"/>
                         <outlet property="labelCurrent" destination="qG8-Wz-lqf" id="2PF-Vv-uCv"/>
                         <outlet property="labelTitle" destination="Ma1-3K-4Hb" id="KSP-iA-1yh"/>
                         <outlet property="labelTotal" destination="MXC-oa-LPo" id="Q65-l8-evn"/>
@@ -825,10 +844,11 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="789"/>
+            <point key="canvasLocation" x="74" y="738"/>
         </scene>
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSShareTemplate" width="11" height="16"/>
     </resources>
 </document>

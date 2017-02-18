@@ -10,6 +10,10 @@ import Foundation
 import RealmSwift
 import SwiftDate
 
+enum Representation {
+    case csv
+}
+
 class Task: Object {
     
     dynamic var start = Date()
@@ -37,6 +41,28 @@ class Task: Object {
         let realm = try! Realm()
         let tasks = realm.objects(Task.self).filter("running = true")
         return tasks.first
+        
+    }
+    
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.doesRelativeDateFormatting = false
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        return formatter
+    }()
+    
+    func representation(_ type: Representation) -> Any {
+        
+        switch type {
+        case .csv:
+            
+            /* Convert to CSV */
+            let startDate = dateFormatter.string(from: start)
+            let endDate = dateFormatter.string(from: end ?? Date())
+            return "\(startDate);\(endDate);\(duration.string);\(note ?? "")\n"
+            
+        }
         
     }
     

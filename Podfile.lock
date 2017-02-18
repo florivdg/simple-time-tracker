@@ -1,4 +1,5 @@
 PODS:
+  - AsyncSwift (2.0.1)
   - Realm (2.4.2):
     - Realm/Headers (= 2.4.2)
   - Realm/Headers (2.4.2)
@@ -10,16 +11,18 @@ PODS:
   - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
+  - AsyncSwift
   - RealmSwift
   - SwiftDate
   - XCGLogger
 
 SPEC CHECKSUMS:
+  AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 37a055e6536134422e3f92c885d24e7826276bd6
+PODFILE CHECKSUM: 0e60a7181d70d6f7a71deccb093b93ac3b0c9a06
 
 COCOAPODS: 1.2.0

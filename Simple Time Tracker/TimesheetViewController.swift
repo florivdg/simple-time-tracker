@@ -9,6 +9,7 @@
 import Cocoa
 import XCGLogger
 import RealmSwift
+import Async
 
 class TimesheetViewController: NSViewController {
     
@@ -134,5 +135,56 @@ class TimesheetViewController: NSViewController {
         
     }
 
+    @IBAction func exportTimesheet(_ sender: NSButton) {
+        
+        log.verbose("Exporting...")
+        
+        guard let tasks = self.timesheet?.tasks else { NSBeep(); return }
+        let tasksRef = ThreadSafeReference(to: tasks)
+        
+        Async.userInitiated { [weak self] in
+            
+            let realm = try! Realm()
+            guard let allTasks = realm.resolve(tasksRef) else {
+                return // gone
+            }
+            
+            guard var csvString = allTasks.first?.timesheet?.representation(.csv) as? String else { return }
+            
+            /* Convert CSV */
+            for task in allTasks {
+                csvString.append(task.representation(.csv) as! String)
+            }
+            
+            self?.log.verbose(csvString)
+            
+            /* Show save panel */
+            
+            let fileName = allTasks.first?.timesheet?.title ?? "Export"
+            
+            Async.main {
+                
+                let savePanel = NSSavePanel()
+                savePanel.nameFieldStringValue = fileName
+                savePanel.isExtensionHidden = false
+                savePanel.canSelectHiddenExtension = true
+                savePanel.allowedFileTypes = ["csv"]
+                savePanel.begin(completionHandler: { (result) in
+                    
+                    if result == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
+                        do {
+                            try csvString.write(to: saveURL, atomically: true, encoding: .utf8)
+                        } catch let error {
+                            XCGLogger.default.error(error)
+                        }
+                    }
+                    
+                })
+                
+            }
+            
+        }
+        
+    }
 }
 

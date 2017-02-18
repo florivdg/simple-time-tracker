@@ -62,4 +62,16 @@ class Timesheet: Object {
         }
     }
     
+    func representation(_ type: Representation) -> Any {
+        
+        switch type {
+        case .csv:
+            
+            /* Convert to CSV */
+            return "Start Date;End Date;Duration;Notes\n"
+            
+        }
+        
+    }
+    
 }
