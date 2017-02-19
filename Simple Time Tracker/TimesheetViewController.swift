@@ -53,7 +53,7 @@ class TimesheetViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        updateUI()
     }
     
     
@@ -61,8 +61,9 @@ class TimesheetViewController: NSViewController {
     
     func updateUI() {
         
-        guard let sheet = timesheet else {
+        guard let sheet = timesheet, sheet.isInvalidated == false else {
             showEmptyUI()
+            labelTitle.isEnabled = false
             return
         }
         
@@ -70,11 +71,15 @@ class TimesheetViewController: NSViewController {
         
         labelTitle.stringValue = sheet.title
         
+        labelTitle.isEnabled = true
+        
     }
     
     func showEmptyUI() {
         
-        labelTitle.stringValue = "---"
+        labelTitle.stringValue = "No timesheet"
+        labelTotal.stringValue = ""
+        labelCurrent.stringValue = ""
         
     }
     
@@ -166,7 +171,7 @@ class TimesheetViewController: NSViewController {
         
         log.verbose("Exporting...")
         
-        guard let tasks = self.timesheet?.tasks else { NSBeep(); return }
+        guard let tasks = self.timesheet?.tasks, tasks.count != 0 else { NSBeep(); return }
         let tasksRef = ThreadSafeReference(to: tasks)
         
         let sender = self.btnExport
@@ -249,6 +254,8 @@ class TimesheetViewController: NSViewController {
                     realm.delete(timesheet.tasks)
                     realm.delete(timesheet)
                 }
+                
+                self?.timesheet = nil
                 
                 self?.sheetsDelegate?.refreshSheetsList(byReloading: true)
                 
