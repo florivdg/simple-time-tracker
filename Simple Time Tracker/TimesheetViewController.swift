@@ -150,14 +150,20 @@ class TimesheetViewController: NSViewController {
         guard let tasks = self.timesheet?.tasks else { NSBeep(); return }
         let tasksRef = ThreadSafeReference(to: tasks)
         
+        sender.isEnabled = false
+        
         Async.userInitiated { [weak self] in
             
             let realm = try! Realm()
             guard let allTasks = realm.resolve(tasksRef) else {
+                Async.main { sender.isEnabled = true }
                 return // gone
             }
             
-            guard var csvString = allTasks.first?.timesheet?.representation(.csv) as? String else { return }
+            guard var csvString = allTasks.first?.timesheet?.representation(.csv) as? String else {
+                Async.main { sender.isEnabled = true }
+                return
+            }
             
             /* Convert CSV */
             for task in allTasks {
@@ -178,6 +184,8 @@ class TimesheetViewController: NSViewController {
                 savePanel.canSelectHiddenExtension = true
                 savePanel.allowedFileTypes = ["csv"]
                 savePanel.begin(completionHandler: { (result) in
+                    
+                    sender.isEnabled = true
                     
                     if result == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
                         do {

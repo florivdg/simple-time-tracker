@@ -666,7 +666,7 @@
                 <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Simple Time Tracker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="231" y="594" width="480" height="200"/>
+                        <rect key="contentRect" x="231" y="594" width="480" height="207"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="A255E546-A1BF-4C46-A253-987F3531F24F" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="lqa-g2-F4G">
                             <allowedToolbarItems>
@@ -735,16 +735,16 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="TimesheetViewController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="l3K-J7-g1q">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="200"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="207"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-3K-4Hb">
-                                        <rect key="frame" x="18" y="136" width="72" height="44"/>
+                                        <rect key="frame" x="18" y="143" width="97" height="44"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="pt5-LP-N97">
-                                            <font key="font" size="36" name=".AppleSystemUIFont"/>
+                                            <font key="font" size="30" name="SFMono-Medium"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -763,17 +763,17 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXC-oa-LPo">
-                                        <rect key="frame" x="18" y="103" width="50" height="25"/>
+                                        <rect key="frame" x="18" y="104" width="69" height="31"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Total" id="C3r-jF-uaC">
-                                            <font key="font" metaFont="system" size="21"/>
+                                            <font key="font" size="21" name="SFMono-Medium"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG8-Wz-lqf">
-                                        <rect key="frame" x="18" y="73" width="48" height="22"/>
+                                        <rect key="frame" x="18" y="72" width="54" height="24"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="5tQ-kB-jhn">
-                                            <font key="font" metaFont="system" size="18"/>
+                                            <font key="font" size="16" name="SFMono-Medium"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>

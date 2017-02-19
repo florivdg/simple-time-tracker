@@ -59,8 +59,9 @@ class Task: Object {
             
             /* Convert to CSV */
             let startDate = dateFormatter.string(from: start)
-            let endDate = dateFormatter.string(from: end ?? Date())
-            return "\(startDate);\(endDate);\(duration.string);\(note ?? "")\n"
+            var endDate = ""
+            if let end = end { endDate = dateFormatter.string(from: end) }
+            return "\(startDate);\(endDate);\(end != nil ? duration.string : "");\(note ?? "")\n"
             
         }
         
