@@ -18,6 +18,10 @@ class TimesheetViewController: NSViewController {
     @IBOutlet weak var labelCurrent: NSTextField!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnStop: NSButton!
+    @IBOutlet weak var btnExport: NSButton!
+    @IBOutlet weak var btnDelete: NSButton!
+    
+    var sheetsDelegate: SheetsDelegate?
     
     let log = XCGLogger.default
     
@@ -62,7 +66,7 @@ class TimesheetViewController: NSViewController {
     
     func showEmptyUI() {
         
-        labelTitle.stringValue = "n/a"
+        labelTitle.stringValue = "---"
         
     }
     
@@ -83,6 +87,8 @@ class TimesheetViewController: NSViewController {
         startUIUpdateTimer()
         
         NSApp.dockTile.badgeLabel = " "
+        
+        self.sheetsDelegate?.refreshSheetsList(byReloading: false)
         
         log.debug(self.currentTask)
         
@@ -139,29 +145,32 @@ class TimesheetViewController: NSViewController {
         
         NSApp.dockTile.badgeLabel = nil
         
+        self.sheetsDelegate?.refreshSheetsList(byReloading: false)
+        
         log.debug("\(task),\n\ran \(task.duration) s")
         
     }
 
-    @IBAction func exportTimesheet(_ sender: NSButton) {
+    @IBAction func exportTimesheet(_ button: NSButton) {
         
         log.verbose("Exporting...")
         
         guard let tasks = self.timesheet?.tasks else { NSBeep(); return }
         let tasksRef = ThreadSafeReference(to: tasks)
         
-        sender.isEnabled = false
+        let sender = self.btnExport
+        sender?.isEnabled = false
         
         Async.userInitiated { [weak self] in
             
             let realm = try! Realm()
             guard let allTasks = realm.resolve(tasksRef) else {
-                Async.main { sender.isEnabled = true }
+                Async.main { sender?.isEnabled = true }
                 return // gone
             }
             
             guard var csvString = allTasks.first?.timesheet?.representation(.csv) as? String else {
-                Async.main { sender.isEnabled = true }
+                Async.main { sender?.isEnabled = true }
                 return
             }
             
@@ -185,7 +194,7 @@ class TimesheetViewController: NSViewController {
                 savePanel.allowedFileTypes = ["csv"]
                 savePanel.begin(completionHandler: { (result) in
                     
-                    sender.isEnabled = true
+                    sender?.isEnabled = true
                     
                     if result == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
                         do {
@@ -202,5 +211,47 @@ class TimesheetViewController: NSViewController {
         }
         
     }
+    
+    @IBAction func deleteTimesheet(_ sender: NSButton) {
+        
+        guard let timesheet = self.timesheet else { NSBeep(); return }
+        
+        let delButton = self.btnDelete
+        delButton?.isEnabled = false
+        
+        let alert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = NSLocalizedString("Do you want to delete this timesheet?", comment: "Title delete confirm")
+        alert.informativeText = NSLocalizedString("All associated tasks and tracked time spans will be removed, too.", comment: "Subtitle delete confirm")
+        alert.addButton(withTitle: NSLocalizedString("Delete", comment: "Modal action delete timesheet"))
+        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: "Modal action cancel"))
+        
+        alert.beginSheetModal(for: NSApp.mainWindow!) { [weak self] (response) in
+            
+            if response == NSAlertFirstButtonReturn {
+                
+                /* Delete */
+                
+                let realm = try! Realm()
+                
+                try! realm.write {
+                    realm.delete(timesheet.tasks)
+                    realm.delete(timesheet)
+                }
+                
+                self?.sheetsDelegate?.refreshSheetsList(byReloading: true)
+                
+            }
+            
+            delButton?.isEnabled = true
+            
+        }
+        
+    }
+    
+}
+
+protocol SheetsDelegate {
+    func refreshSheetsList(byReloading reloading: Bool)
 }
 

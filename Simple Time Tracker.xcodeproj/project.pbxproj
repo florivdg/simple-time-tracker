@@ -15,6 +15,7 @@
 		54045E101E539656009B5732 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E0F1E539656009B5732 /* MainWindowController.swift */; };
 		54045E121E53982A009B5732 /* Timesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E111E53982A009B5732 /* Timesheet.swift */; };
 		54045E141E5398D1009B5732 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E131E5398D1009B5732 /* Task.swift */; };
+		54BE8D031E59A97C00146B4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE8D021E59A97C00146B4B /* Constants.swift */; };
 		54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DB9F451E53CDFB005437AB /* Date+Formatting.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		54045E0F1E539656009B5732 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		54045E111E53982A009B5732 /* Timesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timesheet.swift; sourceTree = "<group>"; };
 		54045E131E5398D1009B5732 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		54BE8D021E59A97C00146B4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54DB9F451E53CDFB005437AB /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		54045E151E5399DF009B5732 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				54BE8D021E59A97C00146B4B /* Constants.swift */,
 				54045E111E53982A009B5732 /* Timesheet.swift */,
 				54045E131E5398D1009B5732 /* Task.swift */,
 				54DB9F451E53CDFB005437AB /* Date+Formatting.swift */,
@@ -240,6 +243,7 @@
 				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
 				54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */,
 				54045E141E5398D1009B5732 /* Task.swift in Sources */,
+				54BE8D031E59A97C00146B4B /* Constants.swift in Sources */,
 				54045E121E53982A009B5732 /* Timesheet.swift in Sources */,
 				54045E011E539581009B5732 /* AppDelegate.swift in Sources */,
 			);

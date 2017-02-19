@@ -10,7 +10,7 @@ import Cocoa
 import XCGLogger
 import RealmSwift
 
-class MainWindowController: NSWindowController {
+class MainWindowController: NSWindowController, SheetsDelegate {
     
     @IBOutlet weak var timesheetPopupButton: NSPopUpButton!
     let log = XCGLogger.default
@@ -25,15 +25,12 @@ class MainWindowController: NSWindowController {
         
         window?.titleVisibility = .hidden
         
-        let realm = try! Realm()
-        timesheets = realm.objects(Timesheet.self).sorted(byKeyPath: "title", ascending: true)
-        
-        configureTimesheetSelector()
-        
-        let sheet = Task.runningTask()?.timesheet ?? timesheets?.first
-        if sheet != nil {
-            loadTimesheet(sheet!, showSelection: true)
+        /* Become delegate */
+        if let sheetVC = self.contentViewController as? TimesheetViewController {
+            sheetVC.sheetsDelegate = self
         }
+        
+        refreshSheetsList(byReloading: true)
         
     }
     
@@ -82,12 +79,12 @@ class MainWindowController: NSWindowController {
     func displayTimesheetTitleModal() {
         
         let a = NSAlert()
-        a.messageText = NSLocalizedString("Please enter a title for the timesheet", comment: "Modal title")
+        a.messageText = NSLocalizedString("Please enter a title", comment: "Modal title")
         a.addButton(withTitle: NSLocalizedString("Create", comment: "Modal action create"))
         a.addButton(withTitle: NSLocalizedString("Cancel", comment: "Modal action cancel"))
         
         let inputTextField = NSTextField(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
-        inputTextField.placeholderString = NSLocalizedString("Title...", comment: "Timesheet title placeholder in text field")
+        inputTextField.placeholderString = NSLocalizedString("Title of timesheet...", comment: "Timesheet title placeholder in text field")
         a.accessoryView = inputTextField
         
         a.beginSheetModal(for: self.window!, completionHandler: { [weak self] modalResponse in
@@ -110,8 +107,8 @@ class MainWindowController: NSWindowController {
     
     func loadTimesheet(_ sheet: Timesheet, showSelection: Bool = false) {
         
-        if showSelection == true, let sheetIndex = timesheets?.index(of: sheet) {
-            timesheetPopupButton.selectItem(at: sheetIndex)
+        if showSelection == true {
+            select(sheet)
         }
         
         /* Load it */
@@ -119,6 +116,40 @@ class MainWindowController: NSWindowController {
         guard let sheetVC = self.contentViewController as? TimesheetViewController else { return }
         
         sheetVC.timesheet = sheet
+        
+        UserDefaults.standard.set(sheet.title, forKey: Constant.userDefaultsLastTimesheetName)
+        
+    }
+    
+    func select(_ sheet: Timesheet) {
+        
+        if let sheetIndex = timesheets?.index(of: sheet) {
+            timesheetPopupButton.selectItem(at: sheetIndex)
+        }
+        
+    }
+    
+    func refreshSheetsList(byReloading reloading: Bool) {
+        
+        let realm = try! Realm()
+        timesheets = realm.objects(Timesheet.self).sorted(byKeyPath: "title", ascending: true)
+        
+        configureTimesheetSelector()
+        
+        /* Active sheet */
+        var lastUsedSheet: Timesheet? = nil
+        if let lastUsedTitle = UserDefaults.standard.string(forKey: Constant.userDefaultsLastTimesheetName) {
+            lastUsedSheet = timesheets?.filter("title = %@", lastUsedTitle).first
+        }
+        let sheet = Task.runningTask()?.timesheet ?? lastUsedSheet ?? timesheets?.first
+        
+        if let sheet = sheet {
+            if reloading {
+                loadTimesheet(sheet, showSelection: true)
+            } else {
+                select(sheet)
+            }
+        }
         
     }
 }
