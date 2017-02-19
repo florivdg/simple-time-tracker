@@ -13,6 +13,8 @@ import Async
 
 class TimesheetViewController: NSViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var labelTitle: NSTextField!
     @IBOutlet weak var labelTotal: NSTextField!
     @IBOutlet weak var labelCurrent: NSTextField!
@@ -20,6 +22,9 @@ class TimesheetViewController: NSViewController {
     @IBOutlet weak var btnStop: NSButton!
     @IBOutlet weak var btnExport: NSButton!
     @IBOutlet weak var btnDelete: NSButton!
+    
+    
+    // MARK: - Properties
     
     var sheetsDelegate: SheetsDelegate?
     
@@ -51,6 +56,9 @@ class TimesheetViewController: NSViewController {
         
     }
     
+    
+    //  MARK: - User Interface
+    
     func updateUI() {
         
         guard let sheet = timesheet else {
@@ -67,30 +75,6 @@ class TimesheetViewController: NSViewController {
     func showEmptyUI() {
         
         labelTitle.stringValue = "---"
-        
-    }
-    
-    @IBAction func startTimer(_ sender: NSButton) {
-        
-        guard let sheet = timesheet, currentTask == nil else {
-            log.error("Time sheet not loaded or a task is already running!")
-            NSBeep()
-            return
-        }
-        
-        let task = Task()
-        let realm = try! Realm()
-        try! realm.write {
-            sheet.tasks.append(task)
-        }
-        
-        startUIUpdateTimer()
-        
-        NSApp.dockTile.badgeLabel = " "
-        
-        self.sheetsDelegate?.refreshSheetsList(byReloading: false)
-        
-        log.debug(self.currentTask)
         
     }
     
@@ -121,6 +105,33 @@ class TimesheetViewController: NSViewController {
         } else {
             labelCurrent.stringValue = "---"
         }
+        
+    }
+    
+    
+    // MARK: - User Actions
+    
+    @IBAction func startTimer(_ sender: NSButton) {
+        
+        guard let sheet = timesheet, currentTask == nil else {
+            log.error("Time sheet not loaded or a task is already running!")
+            NSBeep()
+            return
+        }
+        
+        let task = Task()
+        let realm = try! Realm()
+        try! realm.write {
+            sheet.tasks.append(task)
+        }
+        
+        startUIUpdateTimer()
+        
+        NSApp.dockTile.badgeLabel = " "
+        
+        self.sheetsDelegate?.refreshSheetsList(byReloading: false)
+        
+        log.debug(self.currentTask)
         
     }
     
@@ -249,7 +260,22 @@ class TimesheetViewController: NSViewController {
         
     }
     
+    @IBAction func copyTimeSpan(_ sender: Any) {
+        
+        guard let duration = self.timesheet?.duration else { return }
+        
+        let pasteboard = NSPasteboard.general()
+        let hours = duration / 3600.0
+        let durationString = String(format: "%.2f", hours)
+        pasteboard.declareTypes(["public.utf8-plain-text"], owner: self)
+        pasteboard.setString(durationString, forType: "public.utf8-plain-text")
+        
+    }
+    
 }
+
+
+// MARK: - Protocols and Extensions
 
 protocol SheetsDelegate {
     func refreshSheetsList(byReloading reloading: Bool)
