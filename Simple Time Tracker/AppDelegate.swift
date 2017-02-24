@@ -33,7 +33,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         mainWindowController?.window?.makeKeyAndOrderFront(self)
         return false
     }
-
+    
+    @IBAction func showMainWindow(_ sender: Any) {
+        mainWindowController?.window?.makeKeyAndOrderFront(sender)
+    }
 
 }
 
