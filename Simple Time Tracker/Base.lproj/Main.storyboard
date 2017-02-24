@@ -685,8 +685,8 @@ CA
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="D4F95F3C-0464-46B9-8773-CCC00821359B" label="Add" paletteLabel="Add" id="A3Y-P3-EAy">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="34" height="25"/>
-                                    <size key="maxSize" width="36" height="28"/>
+                                    <size key="minSize" width="36" height="25"/>
+                                    <size key="maxSize" width="36" height="25"/>
                                     <segmentedControl key="view" verticalHuggingPriority="750" id="ehm-TU-1Qh">
                                         <rect key="frame" x="0.0" y="14" width="34" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
