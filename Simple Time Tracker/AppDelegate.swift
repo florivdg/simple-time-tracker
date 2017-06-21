@@ -24,6 +24,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
     }
+    
+    @IBAction func stayInFront(_ sender: NSMenuItem) {
+        
+        guard let window = mainWindowController?.window else { return }
+        
+        if window.level == Int(CGWindowLevelForKey(.floatingWindow)) {
+            window.level = Int(CGWindowLevelForKey(.normalWindow))
+            sender.state = NSOffState
+        } else {
+            window.level = Int(CGWindowLevelForKey(.floatingWindow))
+            sender.state = NSOnState
+        }
+        
+    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application

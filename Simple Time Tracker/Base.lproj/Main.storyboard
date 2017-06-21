@@ -622,6 +622,12 @@ CA
                                                 <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Stay in Front" id="L06-yr-EFu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="stayInFront:" target="Voe-Tx-rLC" id="XpY-Qx-pr6"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
