@@ -20,6 +20,7 @@ class Task: Object {
     dynamic var end: Date?
     dynamic var running: Bool = true
     dynamic var note: String?
+    dynamic var lastUsedTimesheetNote: String?
     
     /* Inverse relationship to Timesheet */
     fileprivate let _timesheets = LinkingObjects(fromType: Timesheet.self, property: "tasks")
