@@ -18,6 +18,7 @@ class TimesheetViewController: NSViewController {
     @IBOutlet weak var labelTitle: NSTextField!
     @IBOutlet weak var labelTotal: NSTextField!
     @IBOutlet weak var labelCurrent: NSTextField!
+    @IBOutlet weak var textFieldNotes: NSTextField!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnStop: NSButton!
     @IBOutlet weak var btnExport: NSButton!
@@ -73,6 +74,8 @@ class TimesheetViewController: NSViewController {
         
         labelTitle.isEnabled = true
         
+        textFieldNotes.stringValue = sheet.lastUsedTimesheetNote ?? ""
+        
     }
     
     func showEmptyUI() {
@@ -80,6 +83,7 @@ class TimesheetViewController: NSViewController {
         labelTitle.stringValue = "No timesheet"
         labelTotal.stringValue = ""
         labelCurrent.stringValue = ""
+        textFieldNotes.stringValue = ""
         
     }
     
@@ -125,9 +129,17 @@ class TimesheetViewController: NSViewController {
         }
         
         let task = Task()
+        
+        /* Have a note? */
+        let note = textFieldNotes.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        if note.characters.count > 0 {
+            task.note = note
+        }
+        
         let realm = try! Realm()
         try! realm.write {
             sheet.tasks.append(task)
+            task.timesheet?.lastUsedTimesheetNote = note
         }
         
         startUIUpdateTimer()

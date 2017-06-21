@@ -13,6 +13,7 @@ class Timesheet: Object {
     
     dynamic var title = ""
     dynamic var notes: String?
+    dynamic var lastUsedTimesheetNote: String?
     
     let tasks = List<Task>()
     
