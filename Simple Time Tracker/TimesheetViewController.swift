@@ -74,6 +74,8 @@ class TimesheetViewController: NSViewController {
         
         labelTitle.isEnabled = true
         
+        textFieldNotes.isEnabled = (currentTask == nil)
+        
         textFieldNotes.stringValue = sheet.lastUsedTimesheetNote ?? ""
         
     }
@@ -146,6 +148,9 @@ class TimesheetViewController: NSViewController {
         
         NSApp.dockTile.badgeLabel = " "
         
+        // Disable notes textfield
+        textFieldNotes.isEnabled = false
+        
         self.sheetsDelegate?.refreshSheetsList(byReloading: false)
         
         log.debug(self.currentTask)
@@ -170,6 +175,9 @@ class TimesheetViewController: NSViewController {
             task.end = Date()
             task.running = false
         }
+        
+        // Disable notes textfield
+        textFieldNotes.isEnabled = true
         
         NSApp.dockTile.badgeLabel = nil
         
