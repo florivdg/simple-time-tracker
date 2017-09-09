@@ -29,8 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         guard let window = mainWindowController?.window else { return }
         
-        window.level = ( window.level == Int(CGWindowLevelForKey(.floatingWindow)) ) ? Int(CGWindowLevelForKey(.normalWindow)) : Int(CGWindowLevelForKey(.floatingWindow))
-        sender.state = ( sender.state == NSOnState ) ? NSOffState : NSOnState
+        window.level = NSWindow.Level(rawValue: ( window.level.rawValue == Int(CGWindowLevelForKey(.floatingWindow)) ) ? Int(CGWindowLevelForKey(.normalWindow)) : Int(CGWindowLevelForKey(.floatingWindow)))
+        sender.state = ( sender.state == .on ) ? .off : .on
         
     }
 

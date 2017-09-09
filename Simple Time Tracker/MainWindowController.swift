@@ -19,7 +19,7 @@ class MainWindowController: NSWindowController, SheetsDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        if let appDelegate = NSApplication.shared().delegate as? AppDelegate {
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
             appDelegate.mainWindowController = self
         }
         
@@ -90,7 +90,7 @@ class MainWindowController: NSWindowController, SheetsDelegate {
         a.accessoryView = inputTextField
         
         a.beginSheetModal(for: self.window!, completionHandler: { [weak self] modalResponse in
-            if modalResponse == NSAlertFirstButtonReturn {
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 let enteredString = inputTextField.stringValue
                 if enteredString.characters.count != 0 {
                     

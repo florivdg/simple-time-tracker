@@ -11,9 +11,9 @@ import RealmSwift
 
 class Timesheet: Object {
     
-    dynamic var title = ""
-    dynamic var notes: String?
-    dynamic var lastUsedTimesheetNote: String?
+    @objc dynamic var title = ""
+    @objc dynamic var notes: String?
+    @objc dynamic var lastUsedTimesheetNote: String?
     
     let tasks = List<Task>()
     

@@ -126,7 +126,7 @@ class TimesheetViewController: NSViewController {
         
         guard let sheet = timesheet, currentTask == nil else {
             log.error("Time sheet not loaded or a task is already running!")
-            NSBeep()
+            NSSound.beep()
             return
         }
         
@@ -161,12 +161,12 @@ class TimesheetViewController: NSViewController {
         
         guard let task = currentTask else {
             log.error("Task not running!")
-            NSBeep()
+            NSSound.beep()
             return }
         
         guard currentTask?.timesheet == self.timesheet else {
             log.error("Trying to stop a task that is not shown currently!")
-            NSBeep()
+            NSSound.beep()
             return
         }
         
@@ -191,7 +191,7 @@ class TimesheetViewController: NSViewController {
         
         log.verbose("Exporting...")
         
-        guard let tasks = self.timesheet?.tasks, tasks.count != 0 else { NSBeep(); return }
+        guard let tasks = self.timesheet?.tasks, tasks.count != 0 else { NSSound.beep(); return }
         let tasksRef = ThreadSafeReference(to: tasks)
         
         let sender = self.btnExport
@@ -232,7 +232,7 @@ class TimesheetViewController: NSViewController {
                     
                     sender?.isEnabled = true
                     
-                    if result == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
+                    if result.rawValue == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
                         do {
                             try csvString.write(to: saveURL, atomically: true, encoding: .utf8)
                         } catch let error {
@@ -250,7 +250,7 @@ class TimesheetViewController: NSViewController {
     
     @IBAction func deleteTimesheet(_ sender: NSButton) {
         
-        guard let timesheet = self.timesheet else { NSBeep(); return }
+        guard let timesheet = self.timesheet else { NSSound.beep(); return }
         
         let delButton = self.btnDelete
         delButton?.isEnabled = false
@@ -264,7 +264,7 @@ class TimesheetViewController: NSViewController {
         
         alert.beginSheetModal(for: NSApp.mainWindow!) { [weak self] (response) in
             
-            if response == NSAlertFirstButtonReturn {
+            if response == NSApplication.ModalResponse.alertFirstButtonReturn {
                 
                 /* Delete */
                 
@@ -291,11 +291,11 @@ class TimesheetViewController: NSViewController {
         
         guard let duration = self.timesheet?.duration else { return }
         
-        let pasteboard = NSPasteboard.general()
+        let pasteboard = NSPasteboard.general
         let hours = duration / 3600.0
         let durationString = String(format: "%.2f", hours)
-        pasteboard.declareTypes(["public.utf8-plain-text"], owner: self)
-        pasteboard.setString(durationString, forType: "public.utf8-plain-text")
+        pasteboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")], owner: self)
+        pasteboard.setString(durationString, forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
         
     }
     

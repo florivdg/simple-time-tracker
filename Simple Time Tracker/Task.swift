@@ -16,10 +16,10 @@ enum Representation {
 
 class Task: Object {
     
-    dynamic var start = Date()
-    dynamic var end: Date?
-    dynamic var running: Bool = true
-    dynamic var note: String?
+    @objc dynamic var start = Date()
+    @objc dynamic var end: Date?
+    @objc dynamic var running: Bool = true
+    @objc dynamic var note: String?
     
     /* Inverse relationship to Timesheet */
     fileprivate let _timesheets = LinkingObjects(fromType: Timesheet.self, property: "tasks")
