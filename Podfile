@@ -9,7 +9,6 @@ target 'Simple Time Tracker' do
   pod 'XCGLogger'
   pod 'RealmSwift'
   pod 'SwiftDate', '~> 4.3.0'
-  pod 'AsyncSwift'
 
 
 end

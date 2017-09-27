@@ -9,7 +9,6 @@
 import Cocoa
 import XCGLogger
 import RealmSwift
-import Async
 
 class TimesheetViewController: NSViewController {
     
@@ -197,16 +196,16 @@ class TimesheetViewController: NSViewController {
         let sender = self.btnExport
         sender?.isEnabled = false
         
-        Async.userInitiated { [weak self] in
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             
             let realm = try! Realm()
             guard let allTasks = realm.resolve(tasksRef) else {
-                Async.main { sender?.isEnabled = true }
+                DispatchQueue.main.async { sender?.isEnabled = true }
                 return // gone
             }
             
             guard var csvString = allTasks.first?.timesheet?.representation(.csv) as? String else {
-                Async.main { sender?.isEnabled = true }
+                DispatchQueue.main.async { sender?.isEnabled = true }
                 return
             }
             
@@ -221,7 +220,7 @@ class TimesheetViewController: NSViewController {
             
             let fileName = allTasks.first?.timesheet?.title ?? "Export"
             
-            Async.main {
+            DispatchQueue.main.async {
                 
                 let savePanel = NSSavePanel()
                 savePanel.nameFieldStringValue = fileName
