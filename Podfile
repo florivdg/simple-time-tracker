@@ -8,7 +8,7 @@ target 'Simple Time Tracker' do
   # Pods for Simple Time Tracker
   pod 'XCGLogger'
   pod 'RealmSwift'
-  pod 'SwiftDate', '~> 4.3.0'
+  pod 'SwiftDate'
 
 
 end
@@ -16,7 +16,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.2'
+      config.build_settings['SWIFT_VERSION'] = '4.0'
     end
   end
 end
