@@ -10,14 +10,18 @@ import Cocoa
 import XCGLogger
 import RealmSwift
 
-class TimesheetViewController: NSViewController {
+class TimesheetViewController: NSViewController, NSTextFieldDelegate {
     
     // MARK: - Outlets
     
     @IBOutlet weak var labelTitle: NSTextField!
     @IBOutlet weak var labelTotal: NSTextField!
     @IBOutlet weak var labelCurrent: NSTextField!
-    @IBOutlet weak var textFieldNotes: NSTextField!
+    @IBOutlet weak var textFieldNotes: NSTextField! {
+        didSet {
+            textFieldNotes.delegate = self
+        }
+    }
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnStop: NSButton!
     @IBOutlet weak var btnExport: NSButton!
@@ -81,7 +85,7 @@ class TimesheetViewController: NSViewController {
     
     func showEmptyUI() {
         
-        labelTitle.stringValue = "No timesheet"
+        labelTitle.stringValue = NSLocalizedString("No timesheet", comment: "Title label main window for empty state")
         labelTotal.stringValue = ""
         labelCurrent.stringValue = ""
         textFieldNotes.stringValue = ""
@@ -296,6 +300,50 @@ class TimesheetViewController: NSViewController {
         pasteboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")], owner: self)
         pasteboard.setString(durationString, forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
         
+    }
+    
+    
+    // MARK: - NSTextFieldDelegate
+    
+    var isAutocompleting = false
+    var isCommandHandling = false
+    
+    override func controlTextDidChange(_ obj: Notification) {
+        guard let textView = obj.userInfo?.values.first as? NSTextView else { return }
+        
+        if !isAutocompleting && !isCommandHandling {
+            isAutocompleting = true
+            textView.complete(nil)
+            isAutocompleting = false
+        }
+    }
+    
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        
+        var didPerformSelectedRequestorOnTextView = false
+        
+        if textView.responds(to: commandSelector) {
+            isCommandHandling = true
+            
+            textView.perform(commandSelector)
+            didPerformSelectedRequestorOnTextView = true
+            
+            isCommandHandling = false
+        }
+        
+        return didPerformSelectedRequestorOnTextView
+        
+    }
+    
+    func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
+        let typedChars = textView.string
+        let prevNotes = self.timesheet?.noteHistory
+        
+        if typedChars.count > 0 {
+            return prevNotes?.filter { $0.contains(typedChars) } ?? []
+        } else {
+            return prevNotes ?? []
+        }
     }
     
 }

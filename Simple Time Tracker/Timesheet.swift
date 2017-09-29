@@ -14,6 +14,12 @@ class Timesheet: Object {
     @objc dynamic var title = ""
     @objc dynamic var notes: String?
     @objc dynamic var lastUsedTimesheetNote: String?
+    var noteHistory: [String] {
+        get {
+            let uniqueNotes = Set( self.tasks.flatMap { $0.note } )
+            return Array(uniqueNotes).sorted()
+        }
+    }
     
     let tasks = List<Task>()
     
