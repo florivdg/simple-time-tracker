@@ -7,7 +7,7 @@ target 'Simple Time Tracker' do
 
   # Pods for Simple Time Tracker
   pod 'XCGLogger'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 2.10.0'
   pod 'SwiftDate'
 
 
