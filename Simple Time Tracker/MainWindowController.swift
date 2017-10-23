@@ -10,11 +10,16 @@ import Cocoa
 import XCGLogger
 import RealmSwift
 
-class MainWindowController: NSWindowController, SheetsDelegate {
+class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate {
     
     @IBOutlet weak var timesheetPopupButton: NSPopUpButton!
     let log = XCGLogger.default
     var timesheets: Results<Timesheet>?
+    lazy var fieldEditor: NonAutocompletingTextView = {
+        let textView = NonAutocompletingTextView()
+        textView.isFieldEditor = true
+        return textView
+    }()
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -24,6 +29,7 @@ class MainWindowController: NSWindowController, SheetsDelegate {
         }
         
         window?.titleVisibility = .hidden
+        window?.delegate = self
         
         /* Become delegate */
         if let sheetVC = self.contentViewController as? TimesheetViewController {
@@ -174,6 +180,16 @@ class MainWindowController: NSWindowController, SheetsDelegate {
         
         Realm.Configuration.defaultConfiguration = config
         
+    }
+    
+    
+    /* NSWindowDelegate */
+    
+    func windowWillReturnFieldEditor(_ sender: NSWindow, to client: Any?) -> Any? {
+        if let _ = client as? NSTextField {
+            return fieldEditor
+        }
+        return nil
     }
     
 }

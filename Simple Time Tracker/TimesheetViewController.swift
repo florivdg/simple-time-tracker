@@ -339,6 +339,8 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         let typedChars = textView.string
         let prevNotes = self.timesheet?.noteHistory
         
+        index.pointee = -1
+        
         if typedChars.count > 0 {
             return prevNotes?.filter { $0.contains(typedChars) } ?? []
         } else {

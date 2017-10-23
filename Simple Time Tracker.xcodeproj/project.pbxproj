@@ -15,6 +15,7 @@
 		54045E101E539656009B5732 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E0F1E539656009B5732 /* MainWindowController.swift */; };
 		54045E121E53982A009B5732 /* Timesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E111E53982A009B5732 /* Timesheet.swift */; };
 		54045E141E5398D1009B5732 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E131E5398D1009B5732 /* Task.swift */; };
+		547C5AF21F9E16410035803D /* NonAutocompletingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */; };
 		54BE8D031E59A97C00146B4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE8D021E59A97C00146B4B /* Constants.swift */; };
 		54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DB9F451E53CDFB005437AB /* Date+Formatting.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		54045E0F1E539656009B5732 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		54045E111E53982A009B5732 /* Timesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timesheet.swift; sourceTree = "<group>"; };
 		54045E131E5398D1009B5732 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAutocompletingTextView.swift; sourceTree = "<group>"; };
 		54BE8D021E59A97C00146B4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54BE8D041E59D02000146B4B /* Simple Time Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Simple Time Tracker.entitlements"; sourceTree = "<group>"; };
 		54DB9F451E53CDFB005437AB /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				54045E0F1E539656009B5732 /* MainWindowController.swift */,
+				547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */,
 				54045E021E539581009B5732 /* TimesheetViewController.swift */,
 			);
 			name = Controller;
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547C5AF21F9E16410035803D /* NonAutocompletingTextView.swift in Sources */,
 				54045E031E539581009B5732 /* TimesheetViewController.swift in Sources */,
 				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
 				54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */,
