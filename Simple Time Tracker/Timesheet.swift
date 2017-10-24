@@ -14,6 +14,10 @@ class Timesheet: Object {
     @objc dynamic var title = ""
     @objc dynamic var notes: String?
     @objc dynamic var lastUsedTimesheetNote: String?
+    @objc dynamic var identifier = UUID().uuidString
+    override static func primaryKey() -> String? {
+        return "identifier"
+    }
     var noteHistory: [String] {
         get {
             let uniqueNotes = Set( self.tasks.flatMap { $0.note } )

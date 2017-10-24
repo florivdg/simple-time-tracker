@@ -167,7 +167,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate
     func performRealmMigrations() {
         
         let config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             
             migrationBlock: { migration, oldSchemaVersion in
                 
@@ -176,6 +176,14 @@ class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate
                     // Realm will automatically detect new properties and removed properties
                     // And will update the schema on disk automatically
                 }
+                
+                if (oldSchemaVersion < 2) {
+                    migration.enumerateObjects(ofType: Timesheet.className()) { oldObject, newObject in
+                        // add identifier
+                        newObject!["identifier"] = UUID().uuidString
+                    }
+                }
+                
         })
         
         Realm.Configuration.defaultConfiguration = config
