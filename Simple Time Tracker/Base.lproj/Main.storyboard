@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -65,7 +66,12 @@
                                                 <action selector="addTimesheet:" target="Ady-hI-5gd" id="kdf-KZ-H0i"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Export timesheet..." keyEquivalent="e" id="FdX-YX-CKh">
+                                        <menuItem title="Edit timesheet" keyEquivalent="e" id="vc7-Tu-gu1">
+                                            <connections>
+                                                <action selector="editTimesheet:" target="Ady-hI-5gd" id="gvz-P2-tl2"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Export timesheet..." keyEquivalent="s" id="FdX-YX-CKh">
                                             <connections>
                                                 <action selector="exportTimesheet:" target="Ady-hI-5gd" id="oa6-Or-3MH"/>
                                             </connections>
@@ -660,6 +666,7 @@ CA
                 <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Simple_Time_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Simple Time Tracker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="mainWindow" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <rect key="contentRect" x="231" y="594" width="480" height="285"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="A255E546-A1BF-4C46-A253-987F3531F24F" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="lqa-g2-F4G">
@@ -714,6 +721,9 @@ CA
                                 <toolbarItem reference="LQA-fp-3eQ"/>
                             </defaultToolbarItems>
                         </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="Hax-7i-diG"/>
+                        </connections>
                     </window>
                     <connections>
                         <outlet property="timesheetPopupButton" destination="eTr-4K-kna" id="qED-hB-lZq"/>
@@ -735,10 +745,10 @@ CA
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="l3K-J7-g1q">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="285"/>
                                 <subviews>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-3K-4Hb">
+                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-3K-4Hb">
                                         <rect key="frame" x="18" y="221" width="444" height="44"/>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Title" id="pt5-LP-N97">
-                                            <font key="font" metaFont="system" size="36"/>
+                                            <font key="font" metaFont="systemBlack" size="36"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -750,35 +760,35 @@ CA
                                         </constraints>
                                         <buttonCell key="cell" type="roundTextured" title="Start" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q7Y-sW-fFu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="systemSemibold" size="13"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="startTimer:" target="XfG-lQ-9wD" id="Ub8-Wf-VYE"/>
                                         </connections>
                                     </button>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXC-oa-LPo">
-                                        <rect key="frame" x="18" y="182" width="60" height="31"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MXC-oa-LPo">
+                                        <rect key="frame" x="18" y="182" width="63" height="31"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Total" id="C3r-jF-uaC">
-                                            <font key="font" metaFont="system" size="26"/>
+                                            <font key="font" metaFont="systemBold" size="26"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG8-Wz-lqf">
-                                        <rect key="frame" x="18" y="149" width="56" height="25"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qG8-Wz-lqf">
+                                        <rect key="frame" x="18" y="149" width="57" height="25"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="5tQ-kB-jhn">
-                                            <font key="font" metaFont="system" size="21"/>
+                                            <font key="font" metaFont="systemSemibold" size="21"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="cbx-wc-E3y">
+                                    <button toolTip="Export timesheet" translatesAutoresizingMaskIntoConstraints="NO" id="cbx-wc-E3y">
                                         <rect key="frame" x="435" y="20" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Uzh-6C-yNF"/>
                                             <constraint firstAttribute="height" constant="25" id="Y7T-UG-9gy"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSShareTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="35b-pC-lUW">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="save" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="35b-pC-lUW">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -793,19 +803,19 @@ CA
                                         </constraints>
                                         <buttonCell key="cell" type="roundTextured" title="Stop" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7t2-62-S6S">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="systemSemibold" size="13"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="stopTimer:" target="XfG-lQ-9wD" id="oes-T5-Ili"/>
                                         </connections>
                                     </button>
-                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="nkk-hJ-WMN">
+                                    <button toolTip="Delete timesheet" translatesAutoresizingMaskIntoConstraints="NO" id="nkk-hJ-WMN">
                                         <rect key="frame" x="400" y="20" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="TaV-fw-fLS"/>
                                             <constraint firstAttribute="height" constant="25" id="agW-aA-rPI"/>
                                         </constraints>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Delete" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="TOB-AR-F15">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="trash" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="TOB-AR-F15">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -813,27 +823,43 @@ CA
                                             <action selector="deleteTimesheet:" target="XfG-lQ-9wD" id="Dfe-G1-COr"/>
                                         </connections>
                                     </button>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-47-7uq">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-47-7uq">
                                         <rect key="frame" x="18" y="115" width="444" height="19"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" placeholderString="Notes here..." id="Vt3-bZ-sOv">
-                                            <font key="font" metaFont="system" size="15"/>
+                                            <font key="font" metaFont="systemSemibold" size="15"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <button toolTip="Edit timesheet" translatesAutoresizingMaskIntoConstraints="NO" id="zng-hb-6r9">
+                                        <rect key="frame" x="365" y="20" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Nnh-8p-ZDA"/>
+                                            <constraint firstAttribute="width" constant="25" id="uKd-xE-P7X"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="pencil" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="hj2-f4-eyE">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="editTimesheet:" target="XfG-lQ-9wD" id="1gC-0K-dYy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cbx-wc-E3y" firstAttribute="leading" secondItem="nkk-hJ-WMN" secondAttribute="trailing" constant="10" symbolic="YES" id="035-EC-CK1"/>
                                     <constraint firstItem="l8N-47-7uq" firstAttribute="trailing" secondItem="Ma1-3K-4Hb" secondAttribute="trailing" id="3uh-XM-RCT"/>
                                     <constraint firstItem="gxy-DW-XAb" firstAttribute="leading" secondItem="l3K-J7-g1q" secondAttribute="leading" constant="20" symbolic="YES" id="Ai3-pz-OIP"/>
                                     <constraint firstItem="qNf-7w-PIf" firstAttribute="leading" secondItem="gxy-DW-XAb" secondAttribute="trailing" constant="8" symbolic="YES" id="Ax5-6V-uLK"/>
-                                    <constraint firstItem="nkk-hJ-WMN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qNf-7w-PIf" secondAttribute="trailing" constant="8" symbolic="YES" id="DIZ-mT-7yi"/>
                                     <constraint firstItem="l8N-47-7uq" firstAttribute="leading" secondItem="qG8-Wz-lqf" secondAttribute="leading" id="Jke-8y-tWW"/>
                                     <constraint firstAttribute="bottom" secondItem="cbx-wc-E3y" secondAttribute="bottom" constant="20" symbolic="YES" id="LqV-DS-9p3"/>
                                     <constraint firstItem="qG8-Wz-lqf" firstAttribute="top" secondItem="MXC-oa-LPo" secondAttribute="bottom" constant="8" symbolic="YES" id="PVT-UZ-Bap"/>
                                     <constraint firstItem="gxy-DW-XAb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="l8N-47-7uq" secondAttribute="bottom" constant="20" id="QcL-KD-uZC"/>
+                                    <constraint firstItem="zng-hb-6r9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qNf-7w-PIf" secondAttribute="trailing" constant="8" symbolic="YES" id="RD3-Of-lxY"/>
                                     <constraint firstItem="Ma1-3K-4Hb" firstAttribute="leading" secondItem="l3K-J7-g1q" secondAttribute="leading" constant="20" symbolic="YES" id="RbP-Ud-Wl0"/>
+                                    <constraint firstItem="nkk-hJ-WMN" firstAttribute="leading" secondItem="zng-hb-6r9" secondAttribute="trailing" constant="10" symbolic="YES" id="YZt-no-ju2"/>
                                     <constraint firstItem="Ma1-3K-4Hb" firstAttribute="top" secondItem="l3K-J7-g1q" secondAttribute="top" constant="20" symbolic="YES" id="YuN-RI-1o9"/>
+                                    <constraint firstItem="zng-hb-6r9" firstAttribute="top" secondItem="nkk-hJ-WMN" secondAttribute="top" id="aSC-uI-JGy"/>
                                     <constraint firstItem="qNf-7w-PIf" firstAttribute="baseline" secondItem="gxy-DW-XAb" secondAttribute="baseline" id="ap7-e8-eGI"/>
                                     <constraint firstItem="l8N-47-7uq" firstAttribute="top" secondItem="qG8-Wz-lqf" secondAttribute="bottom" constant="15" id="imB-WO-qe3"/>
                                     <constraint firstAttribute="trailing" secondItem="cbx-wc-E3y" secondAttribute="trailing" constant="20" symbolic="YES" id="o1u-KB-cvf"/>
@@ -870,8 +896,9 @@ CA
         </scene>
     </scenes>
     <resources>
-        <image name="Delete" width="38" height="38"/>
         <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSShareTemplate" width="11" height="16"/>
+        <image name="pencil" width="30" height="30"/>
+        <image name="save" width="30" height="30"/>
+        <image name="trash" width="30" height="30"/>
     </resources>
 </document>

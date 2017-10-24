@@ -17,6 +17,8 @@
 		54045E141E5398D1009B5732 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E131E5398D1009B5732 /* Task.swift */; };
 		547C5AF21F9E16410035803D /* NonAutocompletingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */; };
 		54BE8D031E59A97C00146B4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE8D021E59A97C00146B4B /* Constants.swift */; };
+		54DAAA081F9E246E0080D51F /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54DAAA071F9E246E0080D51F /* Timesheet.storyboard */; };
+		54DAAA0A1F9E28430080D51F /* TimesheetEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DAAA091F9E28430080D51F /* TimesheetEditViewController.swift */; };
 		54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DB9F451E53CDFB005437AB /* Date+Formatting.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAutocompletingTextView.swift; sourceTree = "<group>"; };
 		54BE8D021E59A97C00146B4B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		54BE8D041E59D02000146B4B /* Simple Time Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Simple Time Tracker.entitlements"; sourceTree = "<group>"; };
+		54DAAA071F9E246E0080D51F /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
+		54DAAA091F9E28430080D51F /* TimesheetEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetEditViewController.swift; sourceTree = "<group>"; };
 		54DB9F451E53CDFB005437AB /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
 		DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 				54045E151E5399DF009B5732 /* Model */,
 				54045E161E5399E6009B5732 /* Controller */,
 				54045E061E539581009B5732 /* Main.storyboard */,
+				54DAAA071F9E246E0080D51F /* Timesheet.storyboard */,
 				54045E041E539581009B5732 /* Assets.xcassets */,
 				54BE8D041E59D02000146B4B /* Simple Time Tracker.entitlements */,
 				54045E091E539581009B5732 /* Info.plist */,
@@ -108,6 +113,7 @@
 				54045E0F1E539656009B5732 /* MainWindowController.swift */,
 				547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */,
 				54045E021E539581009B5732 /* TimesheetViewController.swift */,
+				54DAAA091F9E28430080D51F /* TimesheetEditViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -190,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54DAAA081F9E246E0080D51F /* Timesheet.storyboard in Resources */,
 				54045E051E539581009B5732 /* Assets.xcassets in Resources */,
 				54045E081E539581009B5732 /* Main.storyboard in Resources */,
 			);
@@ -268,6 +275,7 @@
 				54045E031E539581009B5732 /* TimesheetViewController.swift in Sources */,
 				54045E101E539656009B5732 /* MainWindowController.swift in Sources */,
 				54DB9F461E53CDFB005437AB /* Date+Formatting.swift in Sources */,
+				54DAAA0A1F9E28430080D51F /* TimesheetEditViewController.swift in Sources */,
 				54045E141E5398D1009B5732 /* Task.swift in Sources */,
 				54BE8D031E59A97C00146B4B /* Constants.swift in Sources */,
 				54045E121E53982A009B5732 /* Timesheet.swift in Sources */,

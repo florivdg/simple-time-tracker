@@ -54,6 +54,8 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
     }
     var updateTimer: Timer?
 
+    var timesheetEditWindowController: NSWindowController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +70,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         guard let sheet = timesheet, sheet.isInvalidated == false else {
             showEmptyUI()
             labelTitle.isEnabled = false
+            if let editWC = self.timesheetEditWindowController { editWC.close(); self.timesheetEditWindowController = nil }
             return
         }
         
@@ -80,6 +83,10 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         textFieldNotes.isEnabled = (currentTask == nil)
         
         textFieldNotes.stringValue = sheet.lastUsedTimesheetNote ?? ""
+        
+        if let editVC = self.timesheetEditWindowController?.contentViewController as? TimesheetEditViewController {
+            editVC.timesheet = timesheet
+        }
         
     }
     
@@ -299,6 +306,23 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         let durationString = String(format: "%.2f", hours)
         pasteboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")], owner: self)
         pasteboard.setString(durationString, forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
+        
+    }
+    
+    @IBAction func editTimesheet(_ sender: Any) {
+        
+        if self.timesheetEditWindowController == nil {
+            let timesheetStoryboard = NSStoryboard(name: .init("Timesheet"), bundle: nil)
+            if let timesheetWindowController = timesheetStoryboard.instantiateInitialController() as? NSWindowController {
+                self.timesheetEditWindowController = timesheetWindowController
+                if let editVC = self.timesheetEditWindowController?.contentViewController as? TimesheetEditViewController {
+                    editVC.timesheet = self.timesheet
+                }
+            }
+        }
+        
+        self.timesheetEditWindowController?.showWindow(self)
+        self.timesheetEditWindowController?.window?.makeKeyAndOrderFront(self)
         
     }
     
