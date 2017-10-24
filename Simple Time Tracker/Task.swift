@@ -44,7 +44,7 @@ class Task: Object {
         
     }
     
-    fileprivate lazy var dateFormatter: DateFormatter = {
+    fileprivate var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.doesRelativeDateFormatting = false
         formatter.dateStyle = .medium

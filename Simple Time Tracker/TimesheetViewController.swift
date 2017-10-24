@@ -242,7 +242,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
                     
                     sender?.isEnabled = true
                     
-                    if result.rawValue == NSFileHandlingPanelOKButton, let saveURL = savePanel.url {
+                    if result == NSApplication.ModalResponse.OK, let saveURL = savePanel.url {
                         do {
                             try csvString.write(to: saveURL, atomically: true, encoding: .utf8)
                         } catch let error {
