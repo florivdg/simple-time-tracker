@@ -2,12 +2,12 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - Realm (3.0.0):
-    - Realm/Headers (= 3.0.0)
-  - Realm/Headers (3.0.0)
-  - RealmSwift (3.0.0):
-    - Realm (= 3.0.0)
-  - SwiftDate (4.4.1)
+  - Realm (3.0.1):
+    - Realm/Headers (= 3.0.1)
+  - Realm/Headers (3.0.1)
+  - RealmSwift (3.0.1):
+    - Realm (= 3.0.1)
+  - SwiftDate (4.4.2)
   - XCGLogger (6.0.1):
     - XCGLogger/Core (= 6.0.1)
   - XCGLogger/Core (6.0.1):
@@ -20,9 +20,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  Realm: dec0de73be8c57506e39db72694d513c189493b3
-  RealmSwift: 44a7090b16d1b22a406c6bf129bdd602db1bbecc
-  SwiftDate: a70a534d4feed03b2a2b575e36bef82dc2286a8d
+  Realm: ba6144c74f835f7497791f6599d63a7755377b83
+  RealmSwift: 7d13b1ac4b6022a13f841e3143e7789c9e40ad0d
+  SwiftDate: 131cf2f09b390f0a07f0099e36005ffe2fbf4c7e
   XCGLogger: b4ca980580108cfeaf221afe158f5d89c1be22e0
 
 PODFILE CHECKSUM: f392557a40a1e4b55cad542e374f3e660b9748cd

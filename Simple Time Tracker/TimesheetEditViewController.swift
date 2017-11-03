@@ -48,7 +48,7 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
         case "start":
             return self.timesheet?.tasks[row].start
         case "end":
-            return self.timesheet?.tasks[row].end
+            return self.timesheet?.tasks[row].end ?? NSLocalizedString("running now", comment: "TimesheetEditVC table view cell end date when task is currently running")
         case "notes":
             return self.timesheet?.tasks[row].note
         default:

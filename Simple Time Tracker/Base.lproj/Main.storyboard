@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -748,7 +747,7 @@ CA
                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Ma1-3K-4Hb">
                                         <rect key="frame" x="18" y="221" width="444" height="44"/>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Title" id="pt5-LP-N97">
-                                            <font key="font" metaFont="systemBlack" size="36"/>
+                                            <font key="font" metaFont="systemHeavy" size="36"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -756,7 +755,7 @@ CA
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-DW-XAb">
                                         <rect key="frame" x="20" y="18" width="75" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="Aux-sU-eWS"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Aux-sU-eWS"/>
                                         </constraints>
                                         <buttonCell key="cell" type="roundTextured" title="Start" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q7Y-sW-fFu">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -799,7 +798,7 @@ CA
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qNf-7w-PIf">
                                         <rect key="frame" x="103" y="18" width="75" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="PZf-ED-AHw"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="PZf-ED-AHw"/>
                                         </constraints>
                                         <buttonCell key="cell" type="roundTextured" title="Stop" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7t2-62-S6S">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

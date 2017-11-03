@@ -98,7 +98,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate
         a.beginSheetModal(for: self.window!, completionHandler: { [weak self] modalResponse in
             if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 let enteredString = inputTextField.stringValue
-                if enteredString.characters.count != 0 {
+                if enteredString.count != 0 {
                     
                     let sheet = Timesheet.addTimesheet(withTitle: enteredString)
                     self?.configureTimesheetSelector()

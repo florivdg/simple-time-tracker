@@ -144,7 +144,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         
         /* Have a note? */
         let note = textFieldNotes.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if note.characters.count > 0 {
+        if note.count > 0 {
             task.note = note
         }
         
