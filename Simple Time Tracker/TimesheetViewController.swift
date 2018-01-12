@@ -53,6 +53,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     var updateTimer: Timer?
+    var updateTimerDelegate: UpdateTimerDelegate?
 
     var timesheetEditWindowController: NSWindowController?
     
@@ -109,6 +110,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
                 self?.updateTimer?.invalidate()
             } else {
                 self?.updateDurationDisplay()
+                self?.updateTimerDelegate?.timerDidUpdate()
             }
         })
         
@@ -317,6 +319,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
                 self.timesheetEditWindowController = timesheetWindowController
                 if let editVC = self.timesheetEditWindowController?.contentViewController as? TimesheetEditViewController {
                     editVC.timesheet = self.timesheet
+                    self.updateTimerDelegate = editVC
                 }
             }
         }
@@ -381,3 +384,6 @@ protocol SheetsDelegate {
     func refreshSheetsList(byReloading reloading: Bool)
 }
 
+protocol UpdateTimerDelegate {
+    func timerDidUpdate()
+}

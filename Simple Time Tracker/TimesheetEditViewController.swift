@@ -7,8 +7,9 @@
 //
 
 import Cocoa
+import RealmSwift
 
-class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, UpdateTimerDelegate {
 
     // MARK: - Properties
     
@@ -16,14 +17,15 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
         didSet {
             self.labelTitle.stringValue = timesheet?.title ?? "n/a"
             self.tableView.reloadData()
+            updateDuration()
         }
     }
+    
+    var userIsEditing = false
 
     @IBOutlet weak var labelTitle: NSTextField!
     @IBOutlet weak var labelDuration: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
-    
-    var updateTimer: Timer?
     
     
     // MARK: - VC lifecycle
@@ -33,7 +35,7 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
         
         self.tableView.reloadData()
         
-        self.startUIUpdateTimer()
+        self.updateDuration()
     }
 
     
@@ -54,21 +56,15 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
             }
         }
         
+        if timesheet?.isRunning == true && userIsEditing == false {
+            self.tableView.reloadData()
+        }
+        
     }
     
-    func startUIUpdateTimer() {
-        
-        self.updateDuration()
-        
-        updateTimer?.invalidate()
-        updateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] (timer) in
-            if self?.timesheet == nil {
-                self?.updateTimer?.invalidate()
-            } else {
-                self?.updateDuration()
-            }
-        })
-        
+    func timerDidUpdate() {
+        if let _ = NSApp.mainWindow?.firstResponder as? NSTextView { return }
+        updateDuration()
     }
     
     
@@ -104,8 +100,49 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
-        
         updateDuration()
+    }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        if let textView = obj.userInfo?["NSFieldEditor"] as? NSTextView {
+            let selectedRow = self.tableView.selectedRow
+            if selectedRow != -1 {
+                let newNote = textView.string
+                let realm = try! Realm()
+                let task = timesheet?.tasks[selectedRow]
+                try! realm.write {
+                    task?.note = newNote
+                }
+            }
+        }
+        userIsEditing = false
+    }
+    
+    
+    // MARK: - User actions
+    
+    @IBAction func copyTimeSpan(_ sender: Any) {
+        
+        var duration = 0.0
+        
+        if tableView.selectedRow == -1 {
+            duration = self.timesheet?.duration ?? 0.0
+        } else {
+            let selectedIndexes = tableView.selectedRowIndexes
+            if let timesheet = self.timesheet {
+                let selectedTasks = selectedIndexes.map { timesheet.tasks[$0] }
+                let selectedDuration = selectedTasks.reduce(0.0, { (result, task) -> TimeInterval in
+                    return result + task.duration
+                })
+                duration = selectedDuration
+            }
+        }
+        
+        let pasteboard = NSPasteboard.general
+        let hours = duration / 3600.0
+        let durationString = String(format: "%.2f", hours)
+        pasteboard.declareTypes([NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")], owner: self)
+        pasteboard.setString(durationString, forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text"))
         
     }
     

@@ -41,13 +41,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <subviews>
                                     <scrollView focusRingType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtF-Tn-fSQ">
-                                        <rect key="frame" x="20" y="40" width="440" height="151"/>
+                                        <rect key="frame" x="20" y="15" width="440" height="176"/>
                                         <clipView key="contentView" focusRingType="none" drawsBackground="NO" copiesOnScroll="NO" id="M4Q-fS-52R">
-                                            <rect key="frame" x="1" y="0.0" width="438" height="150"/>
+                                            <rect key="frame" x="1" y="0.0" width="438" height="175"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="editTasksList" headerView="fVK-IE-fLt" id="kFA-5F-3Pd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="438" height="127"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="438" height="152"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -129,16 +129,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableHeaderView>
                                     </scrollView>
-                                    <segmentedControl verticalHuggingPriority="750" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRo-OG-ond">
-                                        <rect key="frame" x="384" y="19" width="76" height="23"/>
-                                        <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="smallSquare" trackingMode="momentary" id="kVT-if-Z20">
-                                            <font key="font" metaFont="system"/>
-                                            <segments>
-                                                <segment toolTip="Remove entry" image="NSRemoveTemplate" width="37"/>
-                                                <segment toolTip="Add entry" image="NSAddTemplate" width="36" tag="1"/>
-                                            </segments>
-                                        </segmentedCell>
-                                    </segmentedControl>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="biz-Zs-FLS">
                                         <rect key="frame" x="375" y="203" width="87" height="25"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Duration" id="zdh-xR-sHS">
@@ -150,11 +140,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WtF-Tn-fSQ" secondAttribute="trailing" constant="20" symbolic="YES" id="4xz-XC-dZo"/>
-                                    <constraint firstItem="QRo-OG-ond" firstAttribute="trailing" secondItem="WtF-Tn-fSQ" secondAttribute="trailing" id="Fky-4i-Zzl"/>
+                                    <constraint firstAttribute="bottom" secondItem="WtF-Tn-fSQ" secondAttribute="bottom" constant="15" id="6cu-ob-wF8"/>
                                     <constraint firstAttribute="trailing" secondItem="biz-Zs-FLS" secondAttribute="trailing" constant="20" id="GRP-ZG-FhX"/>
-                                    <constraint firstAttribute="bottom" secondItem="QRo-OG-ond" secondAttribute="bottom" constant="20" symbolic="YES" id="SFZ-ee-ref"/>
                                     <constraint firstItem="WtF-Tn-fSQ" firstAttribute="leading" secondItem="2iN-Lr-cub" secondAttribute="leading" constant="20" symbolic="YES" id="UWb-b4-Gu8"/>
-                                    <constraint firstItem="QRo-OG-ond" firstAttribute="top" secondItem="WtF-Tn-fSQ" secondAttribute="bottom" constant="-1" id="hqF-ZO-EAm"/>
                                 </constraints>
                             </visualEffectView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Lz-oA-Vek">
@@ -189,8 +177,4 @@
             <point key="canvasLocation" x="466" y="93"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSRemoveTemplate" width="11" height="11"/>
-    </resources>
 </document>
