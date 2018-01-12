@@ -27,9 +27,13 @@ class Timesheet: Object {
     
     let tasks = List<Task>()
     
-    class func addTimesheet(withTitle title: String) -> Timesheet {
+    class func addTimesheet(withTitle title: String) -> Timesheet? {
         
+        let predicate = NSPredicate(format: "title = %@", title)
         let realm = try! Realm()
+        let results = realm.objects(Timesheet.self).filter(predicate)
+        guard results.count == 0 else { return nil }
+        
         let sheet = Timesheet()
         sheet.title = title
         
@@ -38,6 +42,16 @@ class Timesheet: Object {
         }
         
         return sheet
+        
+    }
+    
+    class func timesheet(byTitle title: String) -> Timesheet? {
+        
+        let predicate = NSPredicate(format: "title = %@", title)
+        let realm = try! Realm()
+        let results = realm.objects(Timesheet.self).filter(predicate)
+        
+        return results.first
         
     }
     

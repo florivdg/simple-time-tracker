@@ -100,10 +100,16 @@ class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate
                 let enteredString = inputTextField.stringValue
                 if enteredString.count != 0 {
                     
-                    let sheet = Timesheet.addTimesheet(withTitle: enteredString)
-                    self?.configureTimesheetSelector()
-                    
-                    self?.loadTimesheet(sheet, showSelection: true)
+                    if let sheet = Timesheet.addTimesheet(withTitle: enteredString) {
+                        self?.configureTimesheetSelector()
+                        self?.loadTimesheet(sheet, showSelection: true)
+                    } else {
+                        /* Sheet could not be created */
+                        NSSound.beep()
+                        if let existingSheet = Timesheet.timesheet(byTitle: enteredString) {
+                            self?.loadTimesheet(existingSheet, showSelection: true)
+                        }
+                    }
                     
                 }
             }
