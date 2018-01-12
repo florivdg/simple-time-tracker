@@ -410,6 +410,7 @@
 				DEVELOPMENT_TEAM = M7SVPKXU6J;
 				INFOPLIST_FILE = "Simple Time Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.florianweich.Simple-Time-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -428,6 +429,7 @@
 				DEVELOPMENT_TEAM = M7SVPKXU6J;
 				INFOPLIST_FILE = "Simple Time Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.florianweich.Simple-Time-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;

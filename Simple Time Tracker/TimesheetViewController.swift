@@ -71,7 +71,13 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
         guard let sheet = timesheet, sheet.isInvalidated == false else {
             showEmptyUI()
             labelTitle.isEnabled = false
-            if let editWC = self.timesheetEditWindowController { editWC.close(); self.timesheetEditWindowController = nil }
+            if let editWC = self.timesheetEditWindowController {
+                if let editVC = editWC.contentViewController as? TimesheetEditViewController {
+                    editVC.timesheet = nil
+                }
+                editWC.close()
+                self.timesheetEditWindowController = nil
+            }
             return
         }
         

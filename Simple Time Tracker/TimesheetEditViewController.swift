@@ -17,7 +17,9 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
         didSet {
             self.labelTitle.stringValue = timesheet?.title ?? "n/a"
             self.tableView.reloadData()
-            updateDuration()
+            if timesheet != nil {
+                updateDuration()
+            }
         }
     }
     
@@ -64,6 +66,7 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
     
     func timerDidUpdate() {
         if let _ = NSApp.mainWindow?.firstResponder as? NSTextView { return }
+        if timesheet == nil { return }
         updateDuration()
     }
     
