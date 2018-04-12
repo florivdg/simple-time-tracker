@@ -20,7 +20,7 @@ class Timesheet: Object {
     }
     var noteHistory: [String] {
         get {
-            let uniqueNotes = Set( self.tasks.flatMap { $0.note } )
+            let uniqueNotes = Set( self.tasks.compactMap { $0.note } )
             return Array(uniqueNotes).sorted()
         }
     }
