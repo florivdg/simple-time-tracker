@@ -32,7 +32,7 @@ class Task: Object {
             let startDate = start
             let endDate = end ?? Date() // end not set when still running
             
-            return endDate - startDate
+            return endDate.timeIntervalSinceNow - startDate.timeIntervalSinceNow
         }
     }
     
