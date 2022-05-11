@@ -341,7 +341,7 @@ class TimesheetViewController: NSViewController, NSTextFieldDelegate {
     var isAutocompleting = false
     var isCommandHandling = false
     
-    override func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ obj: Notification) {
         guard let textView = obj.userInfo?.values.first as? NSTextView else { return }
         
         if !isAutocompleting && !isCommandHandling {

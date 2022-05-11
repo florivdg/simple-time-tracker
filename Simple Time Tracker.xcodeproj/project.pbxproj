@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		016C2F5F3C1688CEAEB771BB /* Pods_Simple_Time_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */; };
 		54045E011E539581009B5732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E001E539581009B5732 /* AppDelegate.swift */; };
 		54045E031E539581009B5732 /* TimesheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E021E539581009B5732 /* TimesheetViewController.swift */; };
 		54045E051E539581009B5732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54045E041E539581009B5732 /* Assets.xcassets */; };
@@ -16,6 +15,10 @@
 		54045E121E53982A009B5732 /* Timesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E111E53982A009B5732 /* Timesheet.swift */; };
 		54045E141E5398D1009B5732 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54045E131E5398D1009B5732 /* Task.swift */; };
 		547C5AF21F9E16410035803D /* NonAutocompletingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547C5AF11F9E16410035803D /* NonAutocompletingTextView.swift */; };
+		549828FC282BFDA000AB518C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 549828FB282BFDA000AB518C /* RealmSwift */; };
+		549828FF282BFE3500AB518C /* ObjcExceptionBridging in Frameworks */ = {isa = PBXBuildFile; productRef = 549828FE282BFE3500AB518C /* ObjcExceptionBridging */; };
+		54982901282BFE3500AB518C /* XCGLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 54982900282BFE3500AB518C /* XCGLogger */; };
+		54982904282BFE4700AB518C /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 54982903282BFE4700AB518C /* SwiftDate */; };
 		54BE8D031E59A97C00146B4B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BE8D021E59A97C00146B4B /* Constants.swift */; };
 		54DAAA081F9E246E0080D51F /* Timesheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54DAAA071F9E246E0080D51F /* Timesheet.storyboard */; };
 		54DAAA0A1F9E28430080D51F /* TimesheetEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DAAA091F9E28430080D51F /* TimesheetEditViewController.swift */; };
@@ -38,9 +41,6 @@
 		54DAAA071F9E246E0080D51F /* Timesheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timesheet.storyboard; sourceTree = "<group>"; };
 		54DAAA091F9E28430080D51F /* TimesheetEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesheetEditViewController.swift; sourceTree = "<group>"; };
 		54DB9F451E53CDFB005437AB /* Date+Formatting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
-		DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.release.xcconfig"; sourceTree = "<group>"; };
-		F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Time Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker.debug.xcconfig"; sourceTree = "<group>"; };
-		FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Time_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016C2F5F3C1688CEAEB771BB /* Pods_Simple_Time_Tracker.framework in Frameworks */,
+				54982904282BFE4700AB518C /* SwiftDate in Frameworks */,
+				549828FF282BFE3500AB518C /* ObjcExceptionBridging in Frameworks */,
+				549828FC282BFDA000AB518C /* RealmSwift in Frameworks */,
+				54982901282BFE3500AB518C /* XCGLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +61,6 @@
 		4A01888355C1DBDB74BAC0F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC78214B1A5E6457C1B2600A /* Pods_Simple_Time_Tracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,7 +70,6 @@
 			children = (
 				54045DFF1E539581009B5732 /* Simple Time Tracker */,
 				54045DFE1E539581009B5732 /* Products */,
-				9803493B74882987EAC26173 /* Pods */,
 				4A01888355C1DBDB74BAC0F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -118,15 +119,6 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		9803493B74882987EAC26173 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */,
-				DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,17 +126,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54045E0C1E539581009B5732 /* Build configuration list for PBXNativeTarget "Simple Time Tracker" */;
 			buildPhases = (
-				15A6FA6498B6D0EF2CE92F7D /* [CP] Check Pods Manifest.lock */,
 				54045DF91E539581009B5732 /* Sources */,
 				54045DFA1E539581009B5732 /* Frameworks */,
 				54045DFB1E539581009B5732 /* Resources */,
-				951B656C4EAD7F1AB6620F6F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Simple Time Tracker";
+			packageProductDependencies = (
+				549828FB282BFDA000AB518C /* RealmSwift */,
+				549828FE282BFE3500AB518C /* ObjcExceptionBridging */,
+				54982900282BFE3500AB518C /* XCGLogger */,
+				54982903282BFE4700AB518C /* SwiftDate */,
+			);
 			productName = "Simple Time Tracker";
 			productReference = 54045DFD1E539581009B5732 /* Simple Time Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -156,13 +152,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1330;
 				ORGANIZATIONNAME = "Florian Weich";
 				TargetAttributes = {
 					54045DFC1E539581009B5732 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = M7SVPKXU6J;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1330;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -174,13 +170,18 @@
 			};
 			buildConfigurationList = 54045DF81E539581009B5732 /* Build configuration list for PBXProject "Simple Time Tracker" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
 			mainGroup = 54045DF41E539581009B5732;
+			packageReferences = (
+				549828FA282BFDA000AB518C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				549828FD282BFE3500AB518C /* XCRemoteSwiftPackageReference "XCGLogger" */,
+				54982902282BFE4700AB518C /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 54045DFE1E539581009B5732 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,53 +203,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		15A6FA6498B6D0EF2CE92F7D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Simple Time Tracker-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		951B656C4EAD7F1AB6620F6F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
-				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Time Tracker/Pods-Simple Time Tracker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		54045DF91E539581009B5732 /* Sources */ = {
@@ -285,6 +239,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -305,6 +260,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -329,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -342,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -362,6 +319,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -380,48 +338,59 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
 		54045E0D1E539581009B5732 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F17C0E5BAA4CC588C9C3F9F4 /* Pods-Simple Time Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Simple Time Tracker/Simple Time Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = M7SVPKXU6J;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Simple Time Tracker/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.florianweich.Simple-Time-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		54045E0E1E539581009B5732 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE46FA75200167A087EFAE15 /* Pods-Simple Time Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Simple Time Tracker/Simple Time Tracker.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = M7SVPKXU6J;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Simple Time Tracker/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.florianweich.Simple-Time-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -447,6 +416,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		549828FA282BFDA000AB518C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.2;
+			};
+		};
+		549828FD282BFE3500AB518C /* XCRemoteSwiftPackageReference "XCGLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DaveWoodCom/XCGLogger.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		54982902282BFE4700AB518C /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		549828FB282BFDA000AB518C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 549828FA282BFDA000AB518C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		549828FE282BFE3500AB518C /* ObjcExceptionBridging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 549828FD282BFE3500AB518C /* XCRemoteSwiftPackageReference "XCGLogger" */;
+			productName = ObjcExceptionBridging;
+		};
+		54982900282BFE3500AB518C /* XCGLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 549828FD282BFE3500AB518C /* XCRemoteSwiftPackageReference "XCGLogger" */;
+			productName = XCGLogger;
+		};
+		54982903282BFE4700AB518C /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54982902282BFE4700AB518C /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54045DF51E539581009B5732 /* Project object */;
 }

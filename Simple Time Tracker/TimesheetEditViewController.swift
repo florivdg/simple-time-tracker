@@ -106,7 +106,7 @@ class TimesheetEditViewController: NSViewController, NSTableViewDataSource, NSTa
         updateDuration()
     }
     
-    override func controlTextDidEndEditing(_ obj: Notification) {
+    func controlTextDidEndEditing(_ obj: Notification) {
         if let textView = obj.userInfo?["NSFieldEditor"] as? NSTextView {
             let selectedRow = self.tableView.selectedRow
             if selectedRow != -1 {
