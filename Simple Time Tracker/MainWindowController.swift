@@ -66,7 +66,7 @@ class MainWindowController: NSWindowController, NSWindowDelegate, SheetsDelegate
         log.verbose("Will select sheet '\(sender.selectedItem!.title)'")
         
         if let item = sender.selectedItem {
-            if let sheetIndex = sender.itemArray.index(of: item) {
+            if let sheetIndex = sender.itemArray.firstIndex(of: item) {
                 if let sheet = timesheets?[sheetIndex] {
                     loadTimesheet(sheet)
                 }
